@@ -1,0 +1,51 @@
+package aquaticmod.cards;
+
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainGoldAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
+import com.megacrit.cardcrawl.vfx.SpotlightPlayerEffect;
+import aquaticmod.fields.DeepField;
+
+public class SunkenChest extends AbstractAquaticCard {
+    public static final String ID = "SunkenChest";
+    public static final String IMG = "cards/strike.png";
+
+    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardType TYPE = CardType.SKILL;
+
+    private static final int POOL = 0;
+
+    private static final int COST = 0;
+    private static final int MAGIC = 10;
+    private static final int MAGIC_BONUS = 5;
+
+    public SunkenChest() {
+        super(ID, IMG, COST, TYPE, RARITY, TARGET);
+        this.magicNumber = this.baseMagicNumber = MAGIC;
+        this.exhaust = true;
+        DeepField.deep.set(this, true);
+    }
+
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.effectList.add(new RainingGoldEffect(magicNumber * 2, true));
+        addToBot(new GainGoldAction(magicNumber));
+    }
+
+    public AbstractCard makeCopy() {
+        return new SunkenChest();
+    }
+
+    public void upgrade() {
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(MAGIC_BONUS);
+        }
+    }
+}

@@ -1,0 +1,175 @@
+
+{
+    "AquaticMod:Anemone": {
+        "NAME": "Anemone",
+        "DESCRIPTION": "Draw !M! cards. NL Gain Entangle."
+    },
+
+    "AquaticMod:Ahoy": {
+        "NAME": "Ahoy",
+        "DESCRIPTION": "Gain !M! Strength. NL At the end of this turn, lose 4 Strength.",
+        "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL At the end of this turn, lose 6 Strength."
+    },
+
+    "AquaticMod:BombsAway": {
+        "NAME": "Bombs Away",
+        "DESCRIPTION": "Innate. NL Add 2 Depth Charges to the bottom of your deck.",
+        "UPGRADE_DESCRIPTION": "Innate. NL Add 2 Depth Charges+ to the bottom of your deck."
+    },
+
+    "AquaticMod:Bubble": {
+        "NAME": "Bubble",
+        "DESCRIPTION": "Deal !D! damage. NL Gain !M! Swim."
+    },
+
+    "AquaticMod:Cloister": {
+        "NAME": "Cloister",
+        "DESCRIPTION": "Gain !B! Block. NL Gain !M! Weak."
+    },
+
+    "AquaticMod:Compression": {
+        "NAME": "Compression",
+        "DESCRIPTION": "Deal !M! damage for each card in your hand. NL Shuffle this card into your draw pile.",
+        "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
+    },
+
+    "AquaticMod:Defend_Aquatic": {
+        "NAME": "Defend",
+        "DESCRIPTION": "Gain !B! Block."
+    },
+
+    "AquaticMod:DepthCharge": {
+        "NAME": "Depth Charge",
+        "DESCRIPTION": "Deal !D! damage to a random enemy. NL Exhaust."
+    },
+
+    "AquaticMod:FishFlip": {
+        "NAME": "Fish Flip",
+        "DESCRIPTION": "Deal !D! damage to ALL enemies !M! times."
+    },
+
+    "AquaticMod:Float": {
+        "NAME": "Float",
+        "DESCRIPTION": "Gain !B! Block. NL Gain !M! Swim."
+    },
+
+    "AquaticMod:Iceberg": {
+        "NAME": "Iceberg",
+        "DESCRIPTION": "Attack cards Retain. NL Ethereal.",
+        "UPGRADE_DESCRIPTION": "Attack cards Retain."
+    },
+
+    "AquaticMod:IcicleWall": {
+        "NAME": "Icicle Wall",
+        "DESCRIPTION": "Gain !B! Block. NL Gain !M! Thorns. NL Exhaust."
+    },
+
+    "AquaticMod:Lure": {
+        "NAME": "Lure",
+        "DESCRIPTION": "If the enemy intends to attack, gain !M! Thorns."
+    },
+
+    "AquaticMod:Maelstrom": {
+        "NAME": "Maelstrom",
+        "DESCRIPTION": "Double your Swim. NL Exhaust."
+    },
+
+    "AquaticMod:MineField": {
+        "NAME": "Mine Field",
+        "DESCRIPTION": "At the start of your turn, apply !M! Mines to ALL enemies."
+    },
+
+    "AquaticMod:Nuke": {
+        "NAME": "Nuke",
+        "DESCRIPTION": "Apply !M! Mines to a random enemy."
+    },
+
+    "AquaticMod:Pearl": {
+        "NAME": "Pearl",
+        "DESCRIPTION": "Deep. NL Gain !M! Artifact. NL Exhaust."
+    },
+
+    "AquaticMod:Plant": {
+        "NAME": "Plant",
+        "DESCRIPTION": "Apply !M! Mines."
+    },
+
+    "AquaticMod:Poke": {
+        "NAME": "Poke",
+        "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage."
+    },
+
+    "AquaticMod:Puddle": {
+        "NAME": "Puddle",
+        "DESCRIPTION": "Gain !M! Swim."
+    },
+
+    "AquaticMod:RazorFin": {
+        "NAME": "Razor Fin",
+        "DESCRIPTION": "Deal !D! damage. NL Gain !M! Thorns."
+    },
+
+    "AquaticMod:Rebreather": {
+        "NAME": "Rebreather",
+        "DESCRIPTION": "Deep. NL Gain [B] [B]. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Deep. NL Gain [B] [B] [B]. NL Exhaust."
+    },
+
+    "AquaticMod:RogueWave": {
+        "NAME": "Rogue Wave",
+        "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain !M! Swim."
+    },
+
+    "AquaticMod:Sabotage": {
+        "NAME": "Sabotage",
+        "DESCRIPTION": "Apply 10 Mines. NL Apply !M! Vulnerable."
+    },
+
+    "AquaticMod:ScaleOfTheDeep": {
+        "NAME": "Scales-'o-Depth",
+        "DESCRIPTION": "Deep. NL Gain !B! Block."
+    },
+
+    "AquaticMod:ScaleOfTheShore": {
+        "NAME": "Scales-'o-Shore",
+        "DESCRIPTION": "Innate. NL Gain !B! Block."
+    },
+
+    "AquaticMod:ShrimpyStrike": {
+        "NAME": "Shrimpy Strike",
+        "DESCRIPTION": "Deal !D! damage. NL If Fatal, Upgrade this permanently.",
+        "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times."
+    },
+
+    "AquaticMod:Strike_Aquatic": {
+        "NAME": "Strike",
+        "DESCRIPTION": "Deal !D! damage."
+    },
+
+    "AquaticMod:SunkenChest": {
+        "NAME": "Sunken Chest",
+        "DESCRIPTION": "Deep. NL Gain !M! Gold. NL Exhaust."
+    },
+
+    "AquaticMod:TorpedoStrike": {
+        "NAME": "Torpedo Strike",
+        "DESCRIPTION": "Can only be played if you have Swim. NL Deal !D! damage.",
+        "EXTENDED_DESCRIPTION": ["I need Swim."]
+    },
+
+    "AquaticMod:Typhoon": {
+        "NAME": "Typhoon",
+        "DESCRIPTION": "Deal !D! damage to ALL enemies X times. Exhaust.",
+        "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage to ALL enemies X times. Exhaust."
+    },
+
+    "AquaticMod:WideNet": {
+        "NAME": "Wide Net",
+        "DESCRIPTION": "Apply !M! Vulnerable to ALL enemies. NL Gain Entangle."
+    },
+
+    "AquaticMod:WringOut": {
+        "NAME": "Wring Out",
+        "DESCRIPTION": "Deal !D! damage. NL Lose ALL Swim."
+    }
+}

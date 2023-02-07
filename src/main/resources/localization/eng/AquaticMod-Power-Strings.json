@@ -1,0 +1,16 @@
+{
+  "AquaticMod:IcebergPower": {
+    "NAME": "Iceberg",
+    "DESCRIPTIONS": ["Attack cards Retain."]
+  },
+
+  "AquaticMod:MinePower": {
+    "NAME": "Mine",
+    "DESCRIPTIONS": ["The next time you attack the enemy, deal #b", " damage and take #b", " damage."]
+  },
+
+  "AquaticMod:SwimPower": {
+    "NAME": "Swim",
+    "DESCRIPTIONS": ["When you play an Attack, draw 1 card and lose 1 Swim."]
+  }
+}
