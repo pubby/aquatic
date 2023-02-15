@@ -1,20 +1,19 @@
 package aquaticmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainGoldAction;
+import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
-import com.megacrit.cardcrawl.vfx.SpotlightPlayerEffect;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import aquaticmod.fields.DeepField;
 
 public class SunkenChest extends AbstractAquaticCard {
     public static final String ID = "SunkenChest";
-    public static final String IMG = "cards/strike.png";
+    public static final String IMG = "cards/sunkenchest.png";
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -23,8 +22,8 @@ public class SunkenChest extends AbstractAquaticCard {
     private static final int POOL = 0;
 
     private static final int COST = 0;
-    private static final int MAGIC = 10;
-    private static final int MAGIC_BONUS = 5;
+    private static final int MAGIC = 2;
+    //private static final int MAGIC_BONUS = 1;
 
     public SunkenChest() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
@@ -34,8 +33,10 @@ public class SunkenChest extends AbstractAquaticCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.effectList.add(new RainingGoldEffect(magicNumber * 2, true));
-        addToBot(new GainGoldAction(magicNumber));
+        if (upgraded) {
+            addToBot(new RemoveDebuffsAction(p));
+        }
+        addToBot(new ApplyPowerAction(p, p, new ArtifactPower(p, magicNumber), magicNumber));
     }
 
     public AbstractCard makeCopy() {
@@ -45,7 +46,9 @@ public class SunkenChest extends AbstractAquaticCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(MAGIC_BONUS);
+            //upgradeMagicNumber(MAGIC_BONUS);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

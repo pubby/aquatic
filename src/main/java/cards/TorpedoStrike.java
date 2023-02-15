@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import aquaticmod.powers.SwimPower;
+import aquaticmod.fields.DeepField;
 
 public class TorpedoStrike extends AbstractAquaticCard {
     public static final String ID = "TorpedoStrike";
@@ -22,26 +22,17 @@ public class TorpedoStrike extends AbstractAquaticCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 12;
-    private static final int DAMAGE_BONUS = 3;
+    private static final int DAMAGE_BONUS = 4;
 
     public TorpedoStrike() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.tags.add(CardTags.STRIKE);
-    }
-
-    @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(SwimPower.POWER_ID)) {
-            return super.canUse(p, m);
-        } else {
-            cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
-            return false;
-        }
+        DeepField.deep.set(this, true);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
     }
 
     public AbstractCard makeCopy() {

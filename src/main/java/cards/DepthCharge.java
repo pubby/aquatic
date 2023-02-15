@@ -23,7 +23,7 @@ public class DepthCharge extends AbstractAquaticCard {
     private static final int POOL = 0;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 10;
     private static final int DAMAGE_BONUS = 3;
 
     public DepthCharge() {
@@ -34,6 +34,7 @@ public class DepthCharge extends AbstractAquaticCard {
         super(ID, IMG, COST, TYPE, RARITY, TARGET, COLOR);
         this.baseDamage = DAMAGE;
         this.exhaust = true;
+        DeepField.deep.set(this, true);
         if (doUpgrade) upgrade();
     }
 

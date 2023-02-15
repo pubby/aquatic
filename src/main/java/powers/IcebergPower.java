@@ -14,10 +14,10 @@ import aquaticmod.AquaticMod;
 
 public class IcebergPower extends AbstractAquaticPower {
     public static final String POWER_ID = "AquaticMod:IcebergPower";
-    //public static final String IMG = "powers/mine.png";
+    public static final String IMG = "powers/iceberg";
 
     public IcebergPower(AbstractCreature owner) {
-        super(POWER_ID, AquaticMod.getResourcePath("powers/mine"));
+        super(POWER_ID, AquaticMod.getResourcePath(IMG));
         this.owner = owner;
         this.amount = -1;
         //this.loadRegion("retain");

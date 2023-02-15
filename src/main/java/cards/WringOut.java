@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import aquaticmod.powers.SwimPower;
 
 public class WringOut extends AbstractAquaticCard {
@@ -22,7 +23,7 @@ public class WringOut extends AbstractAquaticCard {
     private static final int POOL = 1;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 7;
     private static final int DAMAGE_BONUS = 3;
 
     public WringOut() {
@@ -31,8 +32,13 @@ public class WringOut extends AbstractAquaticCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, SwimPower.POWER_ID));
+        if (p.hasPower(SwimPower.POWER_ID)) {
+            AbstractPower power = p.getPower(SwimPower.POWER_ID);
+            power.amount = 0;
+        }
+
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+        addToTop(new RemoveSpecificPowerAction(p, p, SwimPower.POWER_ID));
 
     }
 

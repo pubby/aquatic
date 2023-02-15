@@ -7,8 +7,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import aquaticmod.AquaticMod;
 import aquaticmod.patches.AbstractCardEnum;
+import aquaticmod.fields.FrozenField;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -57,5 +59,38 @@ public abstract class AbstractAquaticCard extends CustomCard {
 
         initializeTitle();
         initializeDescription();
+    }
+
+    protected void glow50() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if((m.currentHealth <= m.maxHealth / 2) && !m.isDead && !m.isDying) {
+                glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+                break;
+            }
+        }
+    }
+
+    protected void startFrozen() {
+        FrozenField.startFrozen.set(this, true);
+        FrozenField.target.set(this, this.target);
+        target = AbstractCard.CardTarget.NONE;
+    }
+
+    protected void unstartFrozen() {
+        FrozenField.startFrozen.set(this, false);
+        target = FrozenField.target.get(this);
+    }
+
+    protected void toFreeze() {
+        FrozenField.toFreeze.set(this, true);
+    }
+
+    protected void freeze() {
+        FrozenField.target.set(this, this.target);
+        FrozenField.toFreeze.set(this, false);
+        FrozenField.frozen.set(this, true);
+        target = AbstractCard.CardTarget.NONE;
+        applyPowers();
     }
 }

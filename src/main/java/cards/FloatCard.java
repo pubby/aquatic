@@ -20,7 +20,7 @@ public class FloatCard extends AbstractAquaticCard {
 
     private static final int COST = 1;
     private static final int BLOCK = 6;
-    private static final int BLOCK_BONUS = 3;
+    private static final int BLOCK_BONUS = 2;
     private static final int MAGIC = 2;
     private static final int MAGIC_BONUS = 1;
 

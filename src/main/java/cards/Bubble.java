@@ -20,20 +20,21 @@ public class Bubble extends AbstractAquaticCard {
 
     private static final int POOL = 1;
 
-    private static final int COST = 1;
-    private static final int DAMAGE = 8;
-    private static final int DAMAGE_BONUS = 3;
+    private static final int COST = 0;
+    private static final int DAMAGE = 6;
     private static final int MAGIC = 1;
+    private static final int MAGIC_BONUS = 1;
 
     public Bubble() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = MAGIC;
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwimPower(magicNumber), magicNumber));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(p, p, new SwimPower(magicNumber), magicNumber));
     }
 
     public AbstractCard makeCopy() {
@@ -43,7 +44,7 @@ public class Bubble extends AbstractAquaticCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(DAMAGE_BONUS);
+            upgradeMagicNumber(MAGIC_BONUS);
         }
     }
 

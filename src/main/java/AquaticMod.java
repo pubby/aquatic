@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Texture;
 //import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,6 +21,7 @@ import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -35,6 +37,13 @@ import aquaticmod.AssetLoader;
 
 import java.nio.charset.StandardCharsets;
 
+class Keyword
+{
+    public String ID = "";
+    public String PROPER_NAME;
+    public String[] NAMES;
+    public String DESCRIPTION;
+}
 
 @SpireInitializer
 public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber, EditStringsSubscriber, EditRelicsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, PostDrawSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber, AddAudioSubscriber {
@@ -52,6 +61,7 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
     private static final String ATTACK_CARD = "512/bg_attack_aquatic.png";
     private static final String SKILL_CARD = "512/bg_skill_aquatic.png";
     private static final String POWER_CARD = "512/bg_power_aquatic.png";
+    private static final String FROZEN_CARD = "512/bg_frozen_aquatic.png";
 
     private static final String ENERGY_ORB = "512/card_witch_orb.png";
 
@@ -72,6 +82,8 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
 
     public static AssetLoader assets = new AssetLoader();
 
+    public static Texture frozenTexture;
+
     public static final String getResourcePath(String resource) {
         return ASSETS_FOLDER + "/" + resource;
     }
@@ -85,6 +97,12 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
                 getResourcePath(ENERGY_ORB),
                 getResourcePath(ATTACK_CARD_PORTRAIT), getResourcePath(SKILL_CARD_PORTRAIT), getResourcePath(POWER_CARD_PORTRAIT),
                 getResourcePath(ENERGY_ORB_PORTRAIT));
+    }
+
+    public static void loadFrozenTexture() {
+        if (frozenTexture == null) {
+            frozenTexture = ImageMaster.loadImage(getResourcePath(FROZEN_CARD));
+        }
     }
 
     public static void initialize() {
@@ -114,7 +132,15 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
 
 
     public void receiveEditRelics() {
-        RelicLibrary.add(new BigFin());
+        //RelicLibrary.add(new BigFin());
+        RelicLibrary.add(new MagicRod());
+        RelicLibrary.add(new PlatinumReel());
+        RelicLibrary.add(new WornOar());
+        RelicLibrary.add(new Lifebuoy());
+        RelicLibrary.add(new CenozoicTooth());
+        RelicLibrary.add(new Caviar());
+        RelicLibrary.add(new Amoeba());
+        RelicLibrary.add(new OvenMitt());
         /*
         BaseMod.addRelicToCustomPool(new BirdCage(), AbstractCardEnum.WITCH);
         BaseMod.addRelicToCustomPool(new WalkingCane(), AbstractCardEnum.WITCH);
@@ -124,173 +150,136 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
     }
 
     public void receiveEditCards() {
-        // BASIC (3)
+        // BASIC (4)
         BaseMod.addCard(new Strike_Aquatic());
         BaseMod.addCard(new Defend_Aquatic());
         BaseMod.addCard(new Pearl());
+        BaseMod.addCard(new Hook());
 
-        // COMMON (17) (goal 19?)
+        // COMMON (20) (goal 19?)
 
-        // Attacks (9)
-        BaseMod.addCard(new BombsAway());
+        // Attacks (12)
+        BaseMod.addCard(new BrineBlast());
         BaseMod.addCard(new Bubble());
-        BaseMod.addCard(new FishFlip());
+        BaseMod.addCard(new FieryFish());
+        BaseMod.addCard(new HarpoonShot());
+        BaseMod.addCard(new Nibble());
         BaseMod.addCard(new RazorFin());
+        BaseMod.addCard(new RopeLash());
         BaseMod.addCard(new ShrimpyStrike());
+        BaseMod.addCard(new StoneAged());
         BaseMod.addCard(new TorpedoStrike());
+        BaseMod.addCard(new Wrap());
         BaseMod.addCard(new WringOut());
 
         // Skills (9)
-        BaseMod.addCard(new Ahoy());
+        BaseMod.addCard(new AbyssScales());
         BaseMod.addCard(new Anemone());
         BaseMod.addCard(new Cloister());
         BaseMod.addCard(new FloatCard());
+        BaseMod.addCard(new Patrol());
         BaseMod.addCard(new Plant());
         BaseMod.addCard(new Puddle());
-        BaseMod.addCard(new ScaleOfTheDeep());
-        BaseMod.addCard(new ScaleOfTheShore());
-        BaseMod.addCard(new WideNet());
+        BaseMod.addCard(new ShoreScales());
+        BaseMod.addCard(new NetCast());
 
-        // UNCOMMON (7)
+        // UNCOMMON (36)
 
-        // Attacks (2)
+        // Attacks (8)
+        BaseMod.addCard(new BarnacleBlitz());
         BaseMod.addCard(new Compression());
+        BaseMod.addCard(new Demolish());
+        BaseMod.addCard(new MopUp());
         BaseMod.addCard(new RogueWave());
+        BaseMod.addCard(new Surf());
+        BaseMod.addCard(new TentacleSlap());
 
-        // Skills (3)
+        // Skills (18)
+        BaseMod.addCard(new AlgaeBloom());
+        BaseMod.addCard(new BlownOut());
+        BaseMod.addCard(new BrightScales());
+        BaseMod.addCard(new Chitin());
+        BaseMod.addCard(new CoralScales());
+        BaseMod.addCard(new DarkWaters());
+        BaseMod.addCard(new Deploy());
+        BaseMod.addCard(new Detonate());
+        BaseMod.addCard(new FrozenSolid());
+        BaseMod.addCard(new GoneFishin());
         BaseMod.addCard(new IcicleWall());
+        BaseMod.addCard(new IcyScales());
         BaseMod.addCard(new Lure());
+        BaseMod.addCard(new RisingTides());
         BaseMod.addCard(new Sabotage());
+        BaseMod.addCard(new SonarSweep());
+        BaseMod.addCard(new Maelstrom());
+        BaseMod.addCard(new UpToSpeed());
 
-        // Powers (2)
+        // Powers (10)
+        BaseMod.addCard(new Ahoy());
+        BaseMod.addCard(new BombsAway());
+        BaseMod.addCard(new Cephalopod());
+        BaseMod.addCard(new DrowningPool());
         BaseMod.addCard(new Iceberg());
+        BaseMod.addCard(new InkCloud());
+        BaseMod.addCard(new Lagoon());
         BaseMod.addCard(new MineField());
+        BaseMod.addCard(new Waterborn());
+        BaseMod.addCard(new YoHoHo());
 
-        // RARE (6) (goal 17?)
+        // RARE (19) (goal 17?)
 
-        // Attacks (2)
-        BaseMod.addCard(new Poke());
+        // Attacks (6)
+        BaseMod.addCard(new FeedingFrenzy());
+        BaseMod.addCard(new FromBelow());
+        BaseMod.addCard(new KrakenGo());
+        BaseMod.addCard(new Shipwreck());
+        BaseMod.addCard(new SteelWave());
         BaseMod.addCard(new Typhoon());
 
-        // Skills (4)
-        BaseMod.addCard(new Maelstrom());
+        // Skills (8)
+        BaseMod.addCard(new Clone());
+        BaseMod.addCard(new DirtyBomb());
+        BaseMod.addCard(new Dive());
         BaseMod.addCard(new Nuke());
         BaseMod.addCard(new SunkenChest());
+        BaseMod.addCard(new Tsunami());
         BaseMod.addCard(new Rebreather());
+        BaseMod.addCard(new Rejuvenate());
 
-        /*
-        BaseMod.addCard(new Demonfyre());
-        BaseMod.addCard(new BleedOut());
-        BaseMod.addCard(new Broomstick());
-        BaseMod.addCard(new BlackBolt());
-        BaseMod.addCard(new MercuryWand());
-        BaseMod.addCard(new WretchedNails());
-        BaseMod.addCard(new BoneCarving());
-        BaseMod.addCard(new MagicFang());
-        BaseMod.addCard(new MementoMori());
-        BaseMod.addCard(new SkullFlask());
-        BaseMod.addCard(new Thundercloud());
-        //Skills (10)
-        BaseMod.addCard(new BlackShield());
-        BaseMod.addCard(new SaltCircle());
-        BaseMod.addCard(new KarmaDrain());
-        BaseMod.addCard(new WickedThoughts());
-        BaseMod.addCard(new SoulBarrier());
-        BaseMod.addCard(new Bewitch());
-        BaseMod.addCard(new GnarledBody());
-        BaseMod.addCard(new RoilingBarrier());
-        BaseMod.addCard(new Decrepify());
-        BaseMod.addCard(new Atonement());
-
-
-        //UNCOMMON (28)
-        //Attacks (10)
-        BaseMod.addCard(new Athame());
-        BaseMod.addCard(new PainBolt());
-        BaseMod.addCard(new CursedBlade());
-        BaseMod.addCard(new GhoulTouch());
-        BaseMod.addCard(new MortusClaw());
-        BaseMod.addCard(new LivingBomb());
-        BaseMod.addCard(new RiteOfSummer());
-        BaseMod.addCard(new Puncture());
-        BaseMod.addCard(new Harmlessness());
-        BaseMod.addCard(new Malady());
-        //Skills (11)
-        BaseMod.addCard(new Foresight());
-        BaseMod.addCard(new Shrooms());
-        BaseMod.addCard(new NighInvulnerability());
-        BaseMod.addCard(new Pillage());
-        BaseMod.addCard(new RiteOfAutumn());
-        BaseMod.addCard(new CrystalResonance());
-        BaseMod.addCard(new IllOmen());
-        BaseMod.addCard(new RiteOfWinter());
-        BaseMod.addCard(new BalefulWard());
-        BaseMod.addCard(new CorruptBlood());
-        BaseMod.addCard(new PlagueSpreader());
-        //Powers (7)
-        BaseMod.addCard(new TwistedMind());
-        BaseMod.addCard(new Schadenfreude());
-        BaseMod.addCard(new SummonOwlFamiliar());
-        BaseMod.addCard(new SummonRatFamiliar());
-        BaseMod.addCard(new SummonCatFamiliar());
-        BaseMod.addCard(new SummonBatFamiliar());
-        BaseMod.addCard(new GrimVengeance());
-
-
-        //RARE (25)
-        //Attacks (8)
-        BaseMod.addCard(new ImpendingDoom());
-        BaseMod.addCard(new Graveburst());
-        BaseMod.addCard(new EternalThirst());
-        BaseMod.addCard(new DireShriek());
-        BaseMod.addCard(new FatalRay());
-        BaseMod.addCard(new BloodSabbath());
-        BaseMod.addCard(new Boline());
-        BaseMod.addCard(new EvilEye());
-        //Skills (9)
-        BaseMod.addCard(new MysticUnburial());
-        BaseMod.addCard(new UnnaturalEnergy());
-        BaseMod.addCard(new UnluckySeven());
-        BaseMod.addCard(new StrangeBrew());
-        BaseMod.addCard(new RiteOfSpring());
-        BaseMod.addCard(new Twitch());
-        BaseMod.addCard(new RustWall());
-        BaseMod.addCard(new WalpurgisNight());
-        BaseMod.addCard(new VileEgg());
-        //Powers (8)
-        BaseMod.addCard(new Intelligence());
-        BaseMod.addCard(new SummonToadFamiliar());
-        BaseMod.addCard(new SummonRavenFamiliar());
-        BaseMod.addCard(new TrollsBlood());
-        BaseMod.addCard(new DarkProcession());
-        BaseMod.addCard(new IllusionOfStrength());
-        BaseMod.addCard(new ChosenOfTheMoon());
-        BaseMod.addCard(new DeliriumForm());
-        */
+        // Powers (5)
+        BaseMod.addCard(new Avidity());
+        BaseMod.addCard(new Bacteria());
+        BaseMod.addCard(new EggClutch());
+        BaseMod.addCard(new SquidForm());
+        BaseMod.addCard(new SwiftSwim());
     }
 
 
     public void receiveEditStrings() {
-        String relicStrings = Gdx.files.internal("aquaticmod_strings/relic-strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String relicStrings = Gdx.files.internal("localization/eng/AquaticMod-Relic-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
         String cardStrings = Gdx.files.internal("localization/eng/AquaticMod-Card-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
         BaseMod.loadCustomStringsFile(PowerStrings.class, "localization/eng/AquaticMod-Power-Strings.json");
+
+        String uiStrings = Gdx.files.internal("localization/eng/AquaticMod-UI-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
     }
 
 
     public void receiveEditKeywords() {
-        /* TODO
         Gson gson = new Gson();
         String json = Gdx.files.internal("localization/eng/AquaticMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         Keyword[] keywords = gson.fromJson(json, Keyword[].class);
 
         if (keywords != null) {
             for (Keyword keyword : keywords) {
-                BaseMod.addKeyword(modID.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+                BaseMod.addKeyword(keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
-        */
+
+        //BaseMod.addKeyword(modID.toLowerCase(), "Swim", ["swim"], "Hello world");
+        //BaseMod.addKeyword(modID.toLowerCase(), "Swim", ["Swim"], "Hello world2");
     }
 
     public void receivePostDraw(AbstractCard c) {
@@ -332,6 +321,7 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
         BaseMod.addAudio("AquaticMod:EXPLODE_MINE", "aquaticmod_audio/explode_mine.ogg");
         BaseMod.addAudio("AquaticMod:NUKE", "aquaticmod_audio/nuke.ogg");
         BaseMod.addAudio("AquaticMod:SONAR", "aquaticmod_audio/sonar.ogg");
+        BaseMod.addAudio("AquaticMod:ICE_BREAK", "aquaticmod_audio/icebreak.ogg");
     }
 
 }

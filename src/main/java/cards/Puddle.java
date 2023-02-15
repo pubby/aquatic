@@ -9,7 +9,7 @@ import aquaticmod.powers.SwimPower;
 
 public class Puddle extends AbstractAquaticCard {
     public static final String ID = "Puddle";
-    public static final String IMG = "cards/defend.png";
+    public static final String IMG = "cards/puddle.png";
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -27,7 +27,7 @@ public class Puddle extends AbstractAquaticCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwimPower(magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new SwimPower(magicNumber), magicNumber));
     }
 
     public AbstractCard makeCopy() {

@@ -10,7 +10,7 @@ import aquaticmod.fields.DeepField;
 
 public class Rebreather extends AbstractAquaticCard {
     public static final String ID = "Rebreather";
-    public static final String IMG = "cards/strike.png";
+    public static final String IMG = "cards/rebreather.png";
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -30,7 +30,7 @@ public class Rebreather extends AbstractAquaticCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainEnergyAction(this.magicNumber));
+        addToBot(new GainEnergyAction(magicNumber));
     }
 
     public AbstractCard makeCopy() {

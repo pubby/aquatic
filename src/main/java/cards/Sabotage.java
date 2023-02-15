@@ -2,20 +2,23 @@ package aquaticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import aquaticmod.powers.MinePower;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 public class Sabotage extends AbstractAquaticCard {
     public static final String ID = "Sabotage";
     public static final String IMG = "cards/strike.png";
+
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("AquaticMod:Over50");
+    public static final String[] TEXT = uiStrings.TEXT;
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -24,8 +27,8 @@ public class Sabotage extends AbstractAquaticCard {
     private static final int POOL = 1;
 
     private static final int COST = 0;
-    private static final int MAGIC = 1;
-    private static final int MAGIC_BONUS = 1;
+    private static final int MAGIC = 6;
+    private static final int MAGIC_BONUS = 3;
 
     public Sabotage() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
@@ -33,9 +36,19 @@ public class Sabotage extends AbstractAquaticCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(m, p, new MinePower(m, p, 10), 10, true, AbstractGameAction.AttackEffect.NONE));
-        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        CardCrawlGame.sound.playA("AquaticMod:PLANT_MINE", 0.0f);
+        if(m.currentHealth <= m.maxHealth / 2 || m.isDying) {
+            addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber));
+            if (m != null && !m.hasPower("Artifact")) {
+                addToBot(new ApplyPowerAction(m, p, new GainStrengthPower(m, magicNumber), magicNumber));
+            }
+        } else {
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0f, TEXT[0], true));
+        }
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        glow50();
     }
 
     public AbstractCard makeCopy() {

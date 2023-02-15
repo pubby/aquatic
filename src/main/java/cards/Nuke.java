@@ -14,7 +14,7 @@ import aquaticmod.powers.MinePower;
 
 public class Nuke extends AbstractAquaticCard {
     public static final String ID = "Nuke";
-    public static final String IMG = "cards/strike.png";
+    public static final String IMG = "cards/nuke.png";
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
@@ -29,12 +29,15 @@ public class Nuke extends AbstractAquaticCard {
     public Nuke() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
+        startFrozen();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractMonster rm = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
         addToBot(new ApplyPowerAction(rm, p, new MinePower(rm, p, magicNumber), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        CardCrawlGame.sound.playA("AquaticMod:NUKE", 0.0f);
+        if (rm != null && !rm.hasPower("Artifact")) {
+            CardCrawlGame.sound.playA("AquaticMod:NUKE", 0.0f);
+        }
     }
 
     public AbstractCard makeCopy() {

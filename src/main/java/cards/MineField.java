@@ -2,8 +2,6 @@ package aquaticmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,7 +12,7 @@ import aquaticmod.powers.MineFieldPower;
 
 public class MineField extends AbstractAquaticCard {
     public static final String ID = "MineField";
-    public static final String IMG = "cards/strike.png";
+    public static final String IMG = "cards/minefield.png";
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;

@@ -22,10 +22,11 @@ public class Iceberg extends AbstractAquaticCard {
     private static final int POOL = 1;
 
     private static final int COST = 2;
+    private static final int UPGRADE_COST = 1;
 
     public Iceberg() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
-        this.isEthereal = true;
+        startFrozen();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -39,9 +40,7 @@ public class Iceberg extends AbstractAquaticCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            isEthereal = false;
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            initializeDescription();
+            upgradeBaseCost(UPGRADE_COST);
         }
     }
 }

@@ -19,8 +19,8 @@ public class IcicleWall extends AbstractAquaticCard {
     private static final int POOL = 1;
 
     private static final int COST = 2;
-    private static final int BLOCK = 12;
-    private static final int BLOCK_BONUS = 2;
+    private static final int BLOCK = 15;
+    private static final int BLOCK_BONUS = 3;
     private static final int MAGIC = 2;
     private static final int MAGIC_BONUS = 1;
 
@@ -28,12 +28,14 @@ public class IcicleWall extends AbstractAquaticCard {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         this.baseBlock = BLOCK;
         this.magicNumber = this.baseMagicNumber = MAGIC;
-        this.exhaust = true;
+        //this.exhaust = true;
+        //startFrozen();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsPower(p, magicNumber), magicNumber));
+        toFreeze();
     }
 
     public AbstractCard makeCopy() {

@@ -22,14 +22,14 @@ public class ShrimpyAction extends AbstractGameAction {
         this.c = card;
         this.setValues(target, info);
         this.actionType = AbstractGameAction.ActionType.DAMAGE;
-        this.duration = Settings.ACTION_DUR_MED;
+        this.duration = Settings.ACTION_DUR_FAST;
     }
 
     @Override
     public void update() {
         boolean killed = false;
 
-        if (duration == Settings.ACTION_DUR_MED && target != null) {
+        if (duration == Settings.ACTION_DUR_FAST && target != null) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
             target.damage(info);
 

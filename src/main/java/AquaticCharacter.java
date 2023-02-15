@@ -31,9 +31,7 @@ import basemod.animations.SpriterAnimation;
 import org.lwjgl.Sys;
 import aquaticmod.AquaticMod;
 import aquaticmod.cards.AbstractAquaticCard;
-/*
-import aquaticmod.cards.ZombieSpit;
-*/
+import aquaticmod.cards.Pearl;
 import aquaticmod.patches.AbstractCardEnum;
 import aquaticmod.patches.AquaticEnum;
 
@@ -81,9 +79,6 @@ public class AquaticCharacter extends CustomPlayer{
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("AquaticMod:Nuke");
-        retVal.add("AquaticMod:Maelstrom");
-        retVal.add("AquaticMod:Puddle");
         retVal.add("AquaticMod:Strike_Aquatic");
         retVal.add("AquaticMod:Strike_Aquatic");
         retVal.add("AquaticMod:Strike_Aquatic");
@@ -94,14 +89,6 @@ public class AquaticCharacter extends CustomPlayer{
         retVal.add("AquaticMod:Defend_Aquatic");
         retVal.add("AquaticMod:Defend_Aquatic");
         retVal.add("AquaticMod:Pearl");
-        /*
-        retVal.add("AquaticMod:Defend_Witch");
-        retVal.add("AquaticMod:Defend_Witch");
-        retVal.add("AquaticMod:Defend_Witch");
-        retVal.add("AquaticMod:Defend_Witch");
-        //retVal.add("AquaticMod:Hexguard");
-        //retVal.add("AquaticMod:ZombieSpit");
-        */
         return retVal;
         //return getAllCards();
     }
@@ -118,8 +105,25 @@ public class AquaticCharacter extends CustomPlayer{
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("BigFin");
-        UnlockTracker.markRelicAsSeen("BigFin");
+        retVal.add("MagicRod");
+        UnlockTracker.markRelicAsSeen("MagicCaster");
+
+        /*
+        retVal.add("Anchor");
+        retVal.add("PlatinumReel");
+        retVal.add("HornCleat");
+        retVal.add("Caviar");
+        retVal.add("CenozoicTooth");
+        retVal.add("OvenMitt");
+        /*
+        RelicLibrary.add(new MagicCaster());
+        RelicLibrary.add(new PlatinumReel());
+        RelicLibrary.add(new WornOar());
+        RelicLibrary.add(new Lifebuoy());
+        RelicLibrary.add(new CenozoicTooth());
+        RelicLibrary.add(new Caviar());
+        RelicLibrary.add(new Amoeba());
+        */
         return retVal;
     }
     
@@ -127,7 +131,7 @@ public class AquaticCharacter extends CustomPlayer{
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo("The Aquatic", "TODO",
-                67, 67, 0, 99, 5,
+                78, 78, 0, 99, 5,
             this, getStartingRelics(), getStartingDeck(), false);
     }
     
@@ -149,9 +153,7 @@ public class AquaticCharacter extends CustomPlayer{
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        //return new ZombieSpit();
-        // TODO
-        return null;
+        return new Pearl();
     }
 
     @Override

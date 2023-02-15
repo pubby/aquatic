@@ -21,10 +21,10 @@ public class RogueWave extends AbstractAquaticCard {
 
     private static final int POOL = 1;
 
-    private static final int COST = 2;
-    private static final int DAMAGE = 14;
-    private static final int DAMAGE_BONUS = 2;
-    private static final int MAGIC = 2;
+    private static final int COST = 3;
+    private static final int DAMAGE = 15;
+    private static final int DAMAGE_BONUS = 3;
+    private static final int MAGIC = 3;
     private static final int MAGIC_BONUS = 1;
 
     public RogueWave() {
@@ -35,7 +35,7 @@ public class RogueWave extends AbstractAquaticCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAllEnemiesAction((AbstractCreature)p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new DamageAllEnemiesAction((AbstractCreature)p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.SMASH));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwimPower(magicNumber), magicNumber));
     }
 

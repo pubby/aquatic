@@ -20,8 +20,8 @@ public class Compression extends AbstractAquaticCard {
 
     private static final int POOL = 1;
 
-    private static final int COST = 0;
-    private static final int MAGIC = 1;
+    private static final int COST = 1;
+    private static final int MAGIC = 2;
     private static final int MAGIC_BONUS = 1;
 
     public Compression() {

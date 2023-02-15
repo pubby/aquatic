@@ -14,7 +14,7 @@ import aquaticmod.powers.MinePower;
 
 public class Plant extends AbstractAquaticCard {
     public static final String ID = "Plant";
-    public static final String IMG = "cards/strike.png";
+    public static final String IMG = "cards/plant.png";
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -33,7 +33,9 @@ public class Plant extends AbstractAquaticCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(m, p, new MinePower(m, p, magicNumber), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        CardCrawlGame.sound.playA("AquaticMod:PLANT_MINE", 0.0f);
+        if (m != null && !m.hasPower("Artifact")) {
+            CardCrawlGame.sound.playA("AquaticMod:PLANT_MINE", 0.0f);
+        }
     }
 
     public AbstractCard makeCopy() {

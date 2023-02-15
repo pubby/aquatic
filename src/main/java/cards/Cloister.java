@@ -6,7 +6,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.powers.EntanglePower;
+import aquaticmod.fields.DeepField;
 
 public class Cloister extends AbstractAquaticCard {
     public static final String ID = "Cloister";
@@ -19,20 +20,23 @@ public class Cloister extends AbstractAquaticCard {
     private static final int POOL = 1;
 
     private static final int COST = 0;
-    private static final int BLOCK = 7;
-    private static final int BLOCK_BONUS = 2;
-    private static final int MAGIC = 2;
-    private static final int MAGIC_BONUS = -1;
+    private static final int BLOCK = 3;
+    private static final int BLOCK_BONUS = 3;
+    private static final int MAGIC = 3;
+    private static final int MAGIC_BONUS = 1;
 
     public Cloister() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         this.baseBlock = BLOCK;
         this.magicNumber = this.baseMagicNumber = MAGIC;
+        this.isInnate = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
-        addToBot(new ApplyPowerAction(p, p, new WeakPower(p, magicNumber, false), magicNumber));
+        if (p.hasPower(EntanglePower.POWER_ID)) {
+            addToBot(new GainBlockAction(p, p, magicNumber));
+        }
     }
 
     public AbstractCard makeCopy() {

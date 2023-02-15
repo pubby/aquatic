@@ -33,6 +33,9 @@ public abstract class AbstractAquaticPower extends AbstractPower {
         region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(imagePath + "48.png"), 0, 0, 32, 32);
     }
 
+    public void onShuffle() {
+    }
+
     /*n
     @Override
     public void renderIcons(SpriteBatch sb, float x, float y, Color c) {
