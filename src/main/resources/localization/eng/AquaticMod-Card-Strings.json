@@ -1,30 +1,88 @@
 
 {
+    "AquaticMod:AbyssScales": {
+        "NAME": "Abyss Scales",
+        "DESCRIPTION": "Deep. NL Gain !B! Block."
+    },
+
+    "AquaticMod:AlgaeBloom": {
+        "NAME": "Algae Bloom",
+        "DESCRIPTION": "Retain. NL Gain [B]. NL Add a Slimed to the bottom of your NL draw pile.",
+        "UPGRADE_DESCRIPTION": "Retain. NL Gain [B]. NL Add a Slimed NL into your hand."
+    },
+
     "AquaticMod:Anemone": {
         "NAME": "Anemone",
-        "DESCRIPTION": "Draw !M! cards. NL Gain Entangle."
+        "DESCRIPTION": "Draw !M! cards. NL Gain Entangled."
     },
 
     "AquaticMod:Ahoy": {
         "NAME": "Ahoy",
-        "DESCRIPTION": "Gain !M! Strength. NL At the end of this turn, lose 4 Strength.",
-        "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL At the end of this turn, lose 6 Strength."
+        "DESCRIPTION": "Innate. NL Gain !M! Strength. NL The next time you shuffle your draw pile, lose !M! Strength."
+    },
+
+    "AquaticMod:Avidity": {
+        "NAME": "Avidity",
+        "DESCRIPTION": "Whenever you gain Swim, trigger it.",
+        "UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain Swim, trigger it."
+    },
+
+    "AquaticMod:Bacteria": {
+        "NAME": "Bacteria",
+        "DESCRIPTION": "Whenever you Exhaust a card, you may Exhaust another card from your hand."
+    },
+
+    "AquaticMod:BarnacleBlitz": {
+        "NAME": "Barnacle Blitz",
+        "DESCRIPTION": "Deal !D! damage. NL Draw !M! Cards. NL Gain !M! Swim. NL Freeze this card."
+    },
+
+    "AquaticMod:BlownOut": {
+        "NAME": "Blown Out",
+        "DESCRIPTION": "Add !M! Depth Charges to the bottom of your draw pile."
     },
 
     "AquaticMod:BombsAway": {
         "NAME": "Bombs Away",
-        "DESCRIPTION": "Innate. NL Add 2 Depth Charges to the bottom of your deck.",
-        "UPGRADE_DESCRIPTION": "Innate. NL Add 2 Depth Charges+ to the bottom of your deck."
+        "DESCRIPTION": "At the start of your turn, add a Depth Charge+ to the bottom of your draw pile.",
+        "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, add a Depth Charge+ to the bottom of your draw pile."
+    },
+
+    "AquaticMod:BrightScales": {
+        "NAME": "Bright Scales",
+        "DESCRIPTION": "Gain Block equal to your Swim +5.",
+        "UPGRADE_DESCRIPTION": "Gain Block equal to your Swim +8.",
+        "EXTENDED_DESCRIPTION": [" NL (Gains !B! Block.)"]
+    },
+
+    "AquaticMod:BrineBlast": {
+        "NAME": "Brine Blast",
+        "DESCRIPTION": "If the target is at or below 50% HP, NL apply !M! Weak. NL Deal !D! damage."
     },
 
     "AquaticMod:Bubble": {
         "NAME": "Bubble",
-        "DESCRIPTION": "Deal !D! damage. NL Gain !M! Swim."
+        "DESCRIPTION": "Deal !D! damage. NL Gain !M! Swim. NL Exhaust."
+    },
+
+    "AquaticMod:Cephalopod": {
+        "NAME": "Cephalopod",
+        "DESCRIPTION": "Whenever you end your turn Entangled, NL gain !M! Strength and Dexterity."
+    },
+
+    "AquaticMod:Clone": {
+        "NAME": "Clone",
+        "DESCRIPTION": "Pick a card from your hand. Put it and a copy of it on the bottom of your draw pile. NL Exhaust."
+    },
+
+    "AquaticMod:Chitin": {
+        "NAME": "Chitin",
+        "DESCRIPTION": "Gain !B! Block. NL Increase this card's Block by !M! this combat."
     },
 
     "AquaticMod:Cloister": {
         "NAME": "Cloister",
-        "DESCRIPTION": "Gain !B! Block. NL Gain !M! Weak."
+        "DESCRIPTION": "Gain !B! Block. NL If Entangled, NL gain !B! additional Block."
     },
 
     "AquaticMod:Compression": {
@@ -33,19 +91,66 @@
         "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
     },
 
+    "AquaticMod:CoralScales": {
+        "NAME": "Coral Scales",
+        "DESCRIPTION": "Gain !B! Block. NL Gain 1 Thorns for ALL your cards containing \"Scales\".",
+        "EXTENDED_DESCRIPTION": [" NL (Gain !M! Thorns.)"]
+    },
+    "AquaticMod:DarkWaters": {
+        "NAME": "Dark Waters",
+        "DESCRIPTION": "Innate. NL Gain !M! Swim. NL Gain Entangled. NL Exhaust."
+    },
+
     "AquaticMod:Defend_Aquatic": {
         "NAME": "Defend",
         "DESCRIPTION": "Gain !B! Block."
     },
 
-    "AquaticMod:DepthCharge": {
-        "NAME": "Depth Charge",
-        "DESCRIPTION": "Deal !D! damage to a random enemy. NL Exhaust."
+    "AquaticMod:Demolish": {
+        "NAME": "Demolish",
+        "DESCRIPTION": "Double the target's Mines. NL Deal !D! damage."
     },
 
-    "AquaticMod:FishFlip": {
-        "NAME": "Fish Flip",
-        "DESCRIPTION": "Deal !D! damage to ALL enemies !M! times."
+    "AquaticMod:Deploy": {
+        "NAME": "Deploy",
+        "DESCRIPTION": "Gain !B! Block. NL Apply !M! Mines to ALL enemies."
+    },
+
+    "AquaticMod:DepthCharge": {
+        "NAME": "Depth Charge",
+        "DESCRIPTION": "Deep. NL Deal !D! damage to a random enemy. NL Exhaust."
+    },
+
+    "AquaticMod:Detonate": {
+        "NAME": "Detonate",
+        "DESCRIPTION": "Deal !D! damage. NL Mines do not damage you from this Attack.",
+        "UPGRADE_DESCRIPTION": "Retain. NL Deal !D! damage. NL Mines do not damage you from this Attack."
+    },
+
+    "AquaticMod:Dive": {
+        "NAME": "Dive",
+        "DESCRIPTION": "Innate. NL Put a Deep card from your draw pile into your hand. NL Exhaust."
+    },
+
+    "AquaticMod:DrowningPool": {
+        "NAME": "Drowning Pool",
+        "DESCRIPTION": "Whenever you play a Deep card, deal !M! damage to ALL enemies."
+    },
+
+    "AquaticMod:EggClutch": {
+        "NAME": "Egg Clutch",
+        "DESCRIPTION": "Deep. NL At the end of 2 turns, gain !M! Strength and Dexterity."
+    },
+
+    "AquaticMod:FeedingFrenzy": {
+        "NAME": "Feeding Frenzy",
+        "DESCRIPTION": "Deep. NL Deal !D! damage. NL For every !M! cards in your deck (not draw pile), heal 1 HP. NL Exhaust."
+    },
+
+    "AquaticMod:FieryFish": {
+        "NAME": "Fiery Fish",
+        "DESCRIPTION": "Deal !D! damage to NL ALL enemies twice. NL Unfreeze a card in your hand.",
+        "UPGRADE_DESCRIPTION": "Deal !D! damage to NL ALL enemies twice. NL Unfreeze ALL the cards in your hand."
     },
 
     "AquaticMod:Float": {
@@ -53,15 +158,67 @@
         "DESCRIPTION": "Gain !B! Block. NL Gain !M! Swim."
     },
 
+    "AquaticMod:FromBelow": {
+        "NAME": "From Below",
+        "DESCRIPTION": "Deep. NL Deal !D! damage twice. NL Gain !M! Strength. NL Shuffle this card into your draw pile."
+    },
+
+    "AquaticMod:FrozenSolid": {
+        "NAME": "Frozen Solid",
+        "DESCRIPTION": "Gain !M! Plated Armor. NL Freeze this card."
+    },
+
+    "AquaticMod:GoneFishin": {
+        "NAME": "Gone Fishin'",
+        "DESCRIPTION": "Unplayable. NL When you draw this card, add a Hook into your hand.",
+        "UPGRADE_DESCRIPTION": "Unplayable. NL When you draw this card, add an Upgraded Hook into your hand."
+    },
+
+    "AquaticMod:HarpoonShot": {
+        "NAME": "Harpoon Shot",
+        "DESCRIPTION": "Deal !D! damage. NL Put a random Attack from your draw pile into your hand."
+    },
+
+    "AquaticMod:Hook": {
+        "NAME": "Hook",
+        "DESCRIPTION": "Retain. NL Return a card from your discard pile to your hand. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Retain. NL Return a card from your discard pile to your hand and Upgrade it for this combat. NL Exhaust."
+    },
+
     "AquaticMod:Iceberg": {
         "NAME": "Iceberg",
-        "DESCRIPTION": "Attack cards Retain. NL Ethereal.",
-        "UPGRADE_DESCRIPTION": "Attack cards Retain."
+        "DESCRIPTION": "Frozen. NL Attacks Retain."
     },
 
     "AquaticMod:IcicleWall": {
         "NAME": "Icicle Wall",
-        "DESCRIPTION": "Gain !B! Block. NL Gain !M! Thorns. NL Exhaust."
+        "DESCRIPTION": "Freeze any number of cards in your hand. NL Gain !B! Block and NL !M! Thorns for each."
+    },
+
+    "AquaticMod:IcyScales": {
+        "NAME": "Icy Scales",
+        "DESCRIPTION": "Frozen. NL Gain !B! Block."
+    },
+
+    "AquaticMod:InkCloud": {
+        "NAME": "Ink Cloud",
+        "DESCRIPTION": "At the start of your turn, gain !M! Block if being attacked, and gain Entangled otherwise.",
+        "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, gain !M! Block if being attacked, and gain Entangled otherwise."
+    },
+
+    "AquaticMod:JellySting": {
+        "NAME": "Jelly Sting",
+        "DESCRIPTION": "Deal !D! damage. NL Draw cards until you have !M! in hand."
+    },
+
+    "AquaticMod:KrakenGo": {
+        "NAME": "The Kraken",
+        "DESCRIPTION": "Deep. NL Frozen. NL Deal !D! damage. NL Gain [B] [B]."
+    },
+
+    "AquaticMod:Lagoon": {
+        "NAME": "Black Lagoon",
+        "DESCRIPTION": "Whenever you play an Attack, gain !M! Block."
     },
 
     "AquaticMod:Lure": {
@@ -71,32 +228,57 @@
 
     "AquaticMod:Maelstrom": {
         "NAME": "Maelstrom",
-        "DESCRIPTION": "Double your Swim. NL Exhaust."
+        "DESCRIPTION": "Gain !M! Swim X times. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Gain !M! Swim X+1 times. NL Exhaust."
     },
 
     "AquaticMod:MineField": {
-        "NAME": "Mine Field",
-        "DESCRIPTION": "At the start of your turn, apply !M! Mines to ALL enemies."
+        "NAME": "Minefield",
+        "DESCRIPTION": "At the start of your turn, apply !M! Mines to ALL enemies X times."
+    },
+
+    "AquaticMod:MopUp": {
+        "NAME": "Mop Up",
+        "DESCRIPTION": "Deep. NL If the target is at or below 50% HP, gain NL [B] and draw 1 card. NL Deal !D! damage."
+    },
+
+    "AquaticMod:NetCast": {
+        "NAME": "Net Cast",
+        "DESCRIPTION": "Apply 1 Weak and NL !M! Vulnerable. NL Gain Entangled."
+    },
+
+    "AquaticMod:Nibble": {
+        "NAME": "Nibble",
+        "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Next turn, gain [B].",
+        "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Next turn, gain [B] [B]."
     },
 
     "AquaticMod:Nuke": {
-        "NAME": "Nuke",
-        "DESCRIPTION": "Apply !M! Mines to a random enemy."
+        "NAME": "Ancient Nuke",
+        "DESCRIPTION": "Frozen. NL Apply !M! Mines to a random enemy."
+    },
+
+    "AquaticMod:DirtyBomb": {
+        "NAME": "Dirty Bomb",
+        "DESCRIPTION": "Apply 10 Mines. NL The next time you attack the enemy, Mines are not removed.",
+        "UPGRADE_DESCRIPTION": "Apply 10 Mines. NL The next !M! times you attack the enemy, Mines are not removed."
+    },
+
+    "AquaticMod:Patrol": {
+        "NAME": "Patrol",
+        "DESCRIPTION": "Gain !B! Block. NL Add a Depth Charge to the bottom of your draw pile.",
+        "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add a Depth Charge+ to the bottom of your draw pile."
     },
 
     "AquaticMod:Pearl": {
         "NAME": "Pearl",
-        "DESCRIPTION": "Deep. NL Gain !M! Artifact. NL Exhaust."
+        "DESCRIPTION": "Deep. NL Unplayable. NL When you draw this card, gain [B].",
+        "UPGRADE_DESCRIPTION": "Unplayable. NL When you draw this card, gain [B]."
     },
 
     "AquaticMod:Plant": {
         "NAME": "Plant",
         "DESCRIPTION": "Apply !M! Mines."
-    },
-
-    "AquaticMod:Poke": {
-        "NAME": "Poke",
-        "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage."
     },
 
     "AquaticMod:Puddle": {
@@ -111,36 +293,67 @@
 
     "AquaticMod:Rebreather": {
         "NAME": "Rebreather",
-        "DESCRIPTION": "Deep. NL Gain [B] [B]. NL Exhaust.",
-        "UPGRADE_DESCRIPTION": "Deep. NL Gain [B] [B] [B]. NL Exhaust."
+        "DESCRIPTION": "Deep. NL Gain [B] [B]. NL Add a Hook to NL your hand. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Deep. NL Gain [B] [B] [B]. NL Add a Hook to NL your hand. NL Exhaust."
+    },
+
+    "AquaticMod:Rejuvenate": {
+        "NAME": "Rejuvenate",
+        "DESCRIPTION": "Next turn, gain Block equal to your current Block. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Next turn, gain Block equal to your current Block."
+    },
+
+    "AquaticMod:RisingTides": {
+        "NAME": "Rising Tides",
+        "DESCRIPTION": "Put 1 card from your hand on the bottom of your draw pile. NL Draw 1 card. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Put any number of cards from your hand on the bottom of your draw pile, then draw 1 card for each. NL Exhaust."
     },
 
     "AquaticMod:RogueWave": {
         "NAME": "Rogue Wave",
-        "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain !M! Swim."
+        "DESCRIPTION": "Deal !D! damage to NL ALL enemies. NL Gain !M! Swim."
+    },
+
+    "AquaticMod:RopeLash": {
+        "NAME": "Rope Lash",
+        "DESCRIPTION": "Deal !D! damage. NL A random Attack in your hand costs 0 until played."
     },
 
     "AquaticMod:Sabotage": {
         "NAME": "Sabotage",
-        "DESCRIPTION": "Apply 10 Mines. NL Apply !M! Vulnerable."
+        "DESCRIPTION": "If the target is at or below 50% HP, it loses !M! Strength this turn."
     },
 
-    "AquaticMod:ScaleOfTheDeep": {
-        "NAME": "Scales-'o-Depth",
-        "DESCRIPTION": "Deep. NL Gain !B! Block."
+    "AquaticMod:Shipwreck": {
+        "NAME": "Shipwreck",
+        "DESCRIPTION": "Deal !D! damage. NL Put as many 0 cost cards from your draw pile into your hand as possible."
     },
 
-    "AquaticMod:ScaleOfTheShore": {
-        "NAME": "Scales-'o-Shore",
+    "AquaticMod:ShoreScales": {
+        "NAME": "Shore Scales",
         "DESCRIPTION": "Innate. NL Gain !B! Block."
     },
 
     "AquaticMod:ShrimpyStrike": {
         "NAME": "Shrimpy Strike",
-        "DESCRIPTION": "Deal !D! damage. NL If Fatal, Upgrade this permanently.",
+        "DESCRIPTION": "Deal !D! damage. NL If Fatal, Upgrade this card permanently.",
         "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times."
     },
 
+    "AquaticMod:SonarSweep": {
+        "NAME": "Sonar Sweep",
+        "DESCRIPTION": "Draw !M! cards. NL You and ALL enemies gain 1 Vulnerable. NL Exhaust."
+    },
+
+    "AquaticMod:SteelWave": {
+        "NAME": "Steel Wave",
+        "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage."
+    },
+
+    "AquaticMod:StoneAged": {
+        "NAME": "Stone Aged",
+        "DESCRIPTION": "Frozen. NL Deal !D! damage. NL When you draw this card, increase its damage by !M! this combat."
+    },
     "AquaticMod:Strike_Aquatic": {
         "NAME": "Strike",
         "DESCRIPTION": "Deal !D! damage."
@@ -148,28 +361,70 @@
 
     "AquaticMod:SunkenChest": {
         "NAME": "Sunken Chest",
-        "DESCRIPTION": "Deep. NL Gain !M! Gold. NL Exhaust."
+        "DESCRIPTION": "Deep. NL Gain !M! Artifact. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Deep. NL Remove ALL your debuffs. NL Gain !M! Artifact. NL Exhaust."
+    },
+
+    "AquaticMod:Surf": {
+        "NAME": "Surf",
+        "DESCRIPTION": "Deal !D! damage to NL ALL enemies. NL Trigger ALL NL your Swim."
+    },
+
+    "AquaticMod:SquidForm": {
+        "NAME": "Squid Form",
+        "DESCRIPTION": "ALL Attacks cost 0. NL Whenever you play !M! Attacks in a turn, NL gain Entangled."
+    },
+
+    "AquaticMod:SwiftSwim": {
+        "NAME": "Swift Swim",
+        "DESCRIPTION": "Swim draws an additional card."
+    },
+
+    "AquaticMod:TentacleSlap": {
+        "NAME": "Tentacle Slap",
+        "DESCRIPTION": "Deal !D! damage. NL Gain Entangled. NL Add a Hook into your hand."
     },
 
     "AquaticMod:TorpedoStrike": {
         "NAME": "Torpedo Strike",
-        "DESCRIPTION": "Can only be played if you have Swim. NL Deal !D! damage.",
-        "EXTENDED_DESCRIPTION": ["I need Swim."]
+        "DESCRIPTION": "Deep. NL Deal !D! damage."
+    },
+
+    "AquaticMod:Tsunami": {
+        "NAME": "Tsunami",
+        "DESCRIPTION": "Gain !M! Swim."
     },
 
     "AquaticMod:Typhoon": {
         "NAME": "Typhoon",
-        "DESCRIPTION": "Deal !D! damage to ALL enemies X times. Exhaust.",
-        "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage to ALL enemies X times. Exhaust."
+        "DESCRIPTION": "Deal !D! damage and apply 1 Weak to ALL enemies X times. NL Exhaust.",
+        "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage and apply 1 Weak to ALL enemies X times. NL Exhaust."
     },
 
-    "AquaticMod:WideNet": {
-        "NAME": "Wide Net",
-        "DESCRIPTION": "Apply !M! Vulnerable to ALL enemies. NL Gain Entangle."
+    "AquaticMod:UpToSpeed": {
+        "NAME": "Up To Speed",
+        "DESCRIPTION": " Next turn, draw !M! additional cards. Exhaust.",
+        "UPGRADE_DESCRIPTION": "Next turn, draw !M! additional cards."
+    },
+
+    "AquaticMod:Waterborn": {
+        "NAME": "Waterborne",
+        "DESCRIPTION": "At the start of your turn, gain !M! Swim."
+    },
+
+    "AquaticMod:Wrap": {
+        "NAME": "Wrap",
+        "DESCRIPTION": "Deal damage equal to your Thorns !M! times.",
+        "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage !M! times.)"]
     },
 
     "AquaticMod:WringOut": {
         "NAME": "Wring Out",
-        "DESCRIPTION": "Deal !D! damage. NL Lose ALL Swim."
+        "DESCRIPTION": "Deal !D! damage. NL Lose ALL your Swim."
+    },
+
+    "AquaticMod:YoHoHo": {
+        "NAME": "Yo Ho Ho",
+        "DESCRIPTION": "Innate. NL Gain !M! Dexterity. NL The next time you shuffle your draw pile, lose !M! Dexterity."
     }
 }

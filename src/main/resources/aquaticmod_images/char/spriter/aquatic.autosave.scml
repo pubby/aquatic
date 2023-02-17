@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r10">
+    <folder id="0">
+        <file id="0" name="body.png" width="230" height="280" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="head.png" width="310" height="200" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="bowl.png" width="512" height="512" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="jaw.png" width="150" height="50" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="entity_000">
+        <animation id="0" name="NewAnimation" length="2000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="2" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="0" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="1" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="0" z_index="3"/>
+                </key>
+                <key id="1" time="999">
+                    <object_ref id="0" timeline="2" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="0" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="1" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="1" z_index="3"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="body">
+                <key id="0">
+                    <object folder="0" file="0" x="-121.635027" y="238.717805" angle="353.985128" scale_x="0.75" scale_y="0.75"/>
+                </key>
+                <key id="1" time="999" spin="-1">
+                    <object folder="0" file="0" x="-125.753484" y="234.571799" angle="356.523775" scale_x="0.75" scale_y="0.75"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="head">
+                <key id="0">
+                    <object folder="0" file="1" x="-88.262286" y="262.235664" angle="0" scale_x="0.75" scale_y="0.75"/>
+                </key>
+                <key id="1" time="999" spin="-1">
+                    <object folder="0" file="1" x="-89.088732" y="263.888557" angle="2.66881" scale_x="0.75" scale_y="0.75"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="bowl">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" x="-192.476092" y="350.545614" angle="0" scale_x="0.75" scale_y="0.75"/>
+                </key>
+                <key id="1" time="999" spin="0">
+                    <object folder="0" file="2" x="-192.476092" y="350.545614" angle="0" scale_x="0.75" scale_y="0.75"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="jaw">
+                <key id="0">
+                    <object folder="0" file="3" x="17.753069" y="166.155673" angle="0" scale_x="0.75" scale_y="0.75"/>
+                </key>
+                <key id="1" time="999" spin="-1">
+                    <object folder="0" file="3" x="22.026574" y="167.010374" angle="9.552294" scale_x="0.75" scale_y="0.75"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

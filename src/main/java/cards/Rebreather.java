@@ -1,5 +1,6 @@
 package aquaticmod.cards;
 
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -26,11 +27,13 @@ public class Rebreather extends AbstractAquaticCard {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.exhaust = true;
+        this.cardsToPreview = new Hook();
         DeepField.deep.set(this, true);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainEnergyAction(magicNumber));
+        addToBot(new MakeTempCardInHandAction((AbstractCard)new Hook(), 1, false));
     }
 
     public AbstractCard makeCopy() {

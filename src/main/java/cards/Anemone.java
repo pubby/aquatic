@@ -21,7 +21,7 @@ public class Anemone extends AbstractAquaticCard {
     private static final int POOL = 1;
 
     private static final int COST = 1;
-    private static final int MAGIC = 4;
+    private static final int MAGIC = 3;
     private static final int MAGIC_BONUS = 1;
 
     public Anemone() {

@@ -23,8 +23,8 @@ public class DepthCharge extends AbstractAquaticCard {
     private static final int POOL = 0;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 10;
-    private static final int DAMAGE_BONUS = 3;
+    private static final int DAMAGE = 8;
+    private static final int DAMAGE_BONUS = 2;
 
     public DepthCharge() {
         this(false);

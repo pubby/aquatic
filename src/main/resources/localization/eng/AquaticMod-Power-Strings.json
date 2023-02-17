@@ -1,7 +1,61 @@
 {
+  "AquaticMod:AvidityPower": {
+    "NAME": "Avidity",
+    "DESCRIPTIONS": ["Whenever you gain Swim, trigger it."]
+  },
+
+  "AquaticMod:BacteriaPower": {
+    "NAME": "Bacteria",
+    "DESCRIPTIONS": ["Whenever you Exhaust a card, you may Exhaust a card from your hand.",
+                     "Whenever you Exhaust a card, you may exhaust #b", " cards from your hand."]
+  },
+
+  "AquaticMod:BombsAwayPower": {
+    "NAME": "Bombs Away",
+    "DESCRIPTIONS": ["At the start of your turn, add a Depth Charge to the bottom of your deck.",
+                     "At the start of your turn, add #b", " Depth Charges to the bottom of your deck." ]
+  },
+
+  "AquaticMod:CephalopodPower": {
+    "NAME": "Cephalopod",
+    "DESCRIPTIONS": ["When you end your turn Entangled, gain #", " #y Strength and #yDexterity."]
+  },
+
+  "AquaticMod:DrowningPoolPower": {
+    "NAME": "Drowning Pool",
+    "DESCRIPTIONS": ["Whenever you play a Deep card, deal #b", " damage to ALL enemies."]
+
+  },
+
+  "AquaticMod:EggClutchPower": {
+    "NAME": "Egg Clutch",
+    "DESCRIPTIONS": ["At the end this turn, gain #b", " #yStrength and #yDexterity.",
+                     "At the end of #b", " turns, gain #b", " #yStrength and #yDexterity."]
+  },
+
+  "AquaticMod:ShuffleLoseDexterityPower": {
+    "NAME": "Momentary Dexterity",
+    "DESCRIPTIONS": ["The next time you shuffle your draw pile, lose #b", " #yDexterity."]
+  },
+
+  "AquaticMod:ShuffleLoseStrengthPower": {
+    "NAME": "Momentary Strength",
+    "DESCRIPTIONS": ["The next time you shuffle your draw pile, lose #b", " #yStrength."]
+  },
+
   "AquaticMod:IcebergPower": {
     "NAME": "Iceberg",
-    "DESCRIPTIONS": ["Attack cards Retain."]
+    "DESCRIPTIONS": ["Attacks Retain."]
+  },
+
+  "AquaticMod:InkCloudPower": {
+    "NAME": "Ink Cloud",
+    "DESCRIPTIONS": ["At the start of your turn, gain #b", " Block if being attacked, and gain Entangled otherwise."]
+  },
+
+  "AquaticMod:LagoonPower": {
+    "NAME": "Black Lagoon",
+    "DESCRIPTIONS": ["Whenever you play an Attack, gain #b", " Block."]
   },
 
   "AquaticMod:MinePower": {
@@ -9,8 +63,34 @@
     "DESCRIPTIONS": ["The next time you attack the enemy, deal #b", " damage and take #b", " damage."]
   },
 
+  "AquaticMod:MineFieldPower": {
+    "NAME": "Minefield",
+    "DESCRIPTIONS": ["At the start of your turn, apply #b", " Mines to ALL enemies."]
+  },
+
+  "AquaticMod:NuclearPower": {
+    "NAME": "Fallout",
+    "DESCRIPTIONS": ["The next time you attack the enemy, Mines are not removed.", "The next #b", " times you attack the enemy, Mines are not removed."]
+  },
+
+  "AquaticMod:SquidFormPower": {
+    "NAME": "Squid Form",
+    "DESCRIPTIONS": ["Attacks cost 0. After playing #b", " attacks this turn, gain Entangled."]
+  },
+
+  "AquaticMod:SwiftSwimPower": {
+    "NAME": "Swift Swim",
+    "DESCRIPTIONS": ["Swim draws an additional card.", "Swim draws an additional #b", " cards."]
+  },
+
   "AquaticMod:SwimPower": {
     "NAME": "Swim",
-    "DESCRIPTIONS": ["When you play an Attack, draw 1 card and lose 1 Swim."]
+    "DESCRIPTIONS": ["After playing an Attack, draw 1 card and lose 1 Swim."]
+  },
+
+  "AquaticMod:WaterbornPower": {
+    "NAME": "Waterborne",
+    "DESCRIPTIONS": ["At the start of your turn, gain #b", " Swim."]
   }
+
 }

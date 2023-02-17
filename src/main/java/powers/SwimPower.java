@@ -11,6 +11,7 @@ import aquaticmod.powers.SwiftSwimPower;
 import aquaticmod.powers.AvidityPower;
 import aquaticmod.cards.Surf;
 import aquaticmod.AquaticMod;
+import aquaticmod.fields.FrozenField;;
 
 public class SwimPower extends AbstractAquaticPower {
     public static final String POWER_ID = "AquaticMod:SwimPower";
@@ -57,7 +58,7 @@ public class SwimPower extends AbstractAquaticPower {
     @Override
     public void onAfterCardPlayed(AbstractCard usedCard) {
         if (usedCard.type == AbstractCard.CardType.ATTACK && amount > 0) {
-            int numTriggers = (usedCard instanceof Surf) ? amount : 1;
+            int numTriggers = (usedCard instanceof Surf && !FrozenField.frozen.get(usedCard)) ? amount : 1;
 
             trigger(numTriggers);
 

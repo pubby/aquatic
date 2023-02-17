@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ThornsPower;
+import aquaticmod.actions.IcicleWallAction;
 
 public class IcicleWall extends AbstractAquaticCard {
     public static final String ID = "IcicleWall";
@@ -19,10 +20,10 @@ public class IcicleWall extends AbstractAquaticCard {
     private static final int POOL = 1;
 
     private static final int COST = 2;
-    private static final int BLOCK = 15;
-    private static final int BLOCK_BONUS = 3;
-    private static final int MAGIC = 2;
-    private static final int MAGIC_BONUS = 1;
+    private static final int BLOCK = 6;
+    private static final int BLOCK_BONUS = 2;
+    private static final int MAGIC = 1;
+    //private static final int MAGIC_BONUS = 1;
 
     public IcicleWall() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
@@ -33,9 +34,10 @@ public class IcicleWall extends AbstractAquaticCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsPower(p, magicNumber), magicNumber));
-        toFreeze();
+        addToBot(new IcicleWallAction(block, magicNumber));
+        //AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsPower(p, magicNumber), magicNumber));
+        //toFreeze();
     }
 
     public AbstractCard makeCopy() {
@@ -46,7 +48,7 @@ public class IcicleWall extends AbstractAquaticCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(BLOCK_BONUS);
-            upgradeMagicNumber(MAGIC_BONUS);
+            //upgradeMagicNumber(MAGIC_BONUS);
         }
     }
 }

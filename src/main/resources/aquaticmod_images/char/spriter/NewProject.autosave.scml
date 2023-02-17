@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r10">
+    <folder id="0">
+        <file id="0" name="bowl.png" width="512" height="512" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="body.png" width="230" height="280" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="head.png" width="310" height="200" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="entity_000">
+        <animation id="0" name="NewAnimation" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="bowl">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-250.574713" y="466.091954"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="body">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="-162.857143" y="294.285714"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="head">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" x="-85.779221" y="357.155292"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

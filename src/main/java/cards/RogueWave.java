@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import aquaticmod.powers.SwimPower;
+import aquaticmod.patches.AttackEffectEnum;
 
 public class RogueWave extends AbstractAquaticCard {
     public static final String ID = "RogueWave";
@@ -22,8 +23,8 @@ public class RogueWave extends AbstractAquaticCard {
     private static final int POOL = 1;
 
     private static final int COST = 3;
-    private static final int DAMAGE = 15;
-    private static final int DAMAGE_BONUS = 3;
+    private static final int DAMAGE = 16;
+    private static final int DAMAGE_BONUS = 4;
     private static final int MAGIC = 3;
     private static final int MAGIC_BONUS = 1;
 
@@ -35,7 +36,7 @@ public class RogueWave extends AbstractAquaticCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAllEnemiesAction((AbstractCreature)p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.SMASH));
+        addToBot(new DamageAllEnemiesAction((AbstractCreature)p, multiDamage, damageTypeForTurn, AttackEffectEnum.WATER));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new SwimPower(magicNumber), magicNumber));
     }
 

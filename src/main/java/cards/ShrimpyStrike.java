@@ -30,7 +30,6 @@ public class ShrimpyStrike extends AbstractAquaticCard {
         this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.tags.add(CardTags.STRIKE);
-        this.startFrozen();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -54,7 +53,6 @@ public class ShrimpyStrike extends AbstractAquaticCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(MAGIC_BONUS);
-            unstartFrozen();
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

@@ -1,0 +1,17 @@
+{
+  "AquaticMod:Over50": {
+    "TEXT": [
+      "That enemy has over 50% HP."
+    ]
+  },
+  "AquaticMod:UnfreezeAction": {
+    "TEXT": [
+      "Choose a card to Unfreeze."
+    ]
+  },
+  "AquaticMod:FreezeAction": {
+    "TEXT": [
+      "to Freeze."
+    ]
+  }
+}

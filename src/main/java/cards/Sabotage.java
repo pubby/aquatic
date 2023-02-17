@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 
 public class Sabotage extends AbstractAquaticCard {
     public static final String ID = "Sabotage";
-    public static final String IMG = "cards/strike.png";
+    public static final String IMG = "cards/sabotage.png";
 
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("AquaticMod:Over50");
     public static final String[] TEXT = uiStrings.TEXT;

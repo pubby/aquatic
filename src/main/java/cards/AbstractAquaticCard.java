@@ -71,26 +71,12 @@ public abstract class AbstractAquaticCard extends CustomCard {
         }
     }
 
-    protected void startFrozen() {
-        FrozenField.startFrozen.set(this, true);
-        FrozenField.target.set(this, this.target);
-        target = AbstractCard.CardTarget.NONE;
-    }
-
-    protected void unstartFrozen() {
-        FrozenField.startFrozen.set(this, false);
-        target = FrozenField.target.get(this);
-    }
-
-    protected void toFreeze() {
-        FrozenField.toFreeze.set(this, true);
-    }
-
-    protected void freeze() {
-        FrozenField.target.set(this, this.target);
-        FrozenField.toFreeze.set(this, false);
-        FrozenField.frozen.set(this, true);
-        target = AbstractCard.CardTarget.NONE;
-        applyPowers();
+    @Override
+    public void applyPowers() {
+        if (FrozenField.startFrozen.get(this)) {
+            FrozenField.startFrozen.set(this, false);
+            FrozenField.freezeCard(this);
+        }
+        super.applyPowers();
     }
 }

@@ -24,6 +24,8 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.helpers.ScreenShake;
 
 import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
@@ -34,9 +36,6 @@ import aquaticmod.cards.AbstractAquaticCard;
 import aquaticmod.cards.Pearl;
 import aquaticmod.patches.AbstractCardEnum;
 import aquaticmod.patches.AquaticEnum;
-
-
-
 
 public class AquaticCharacter extends CustomPlayer{
     
@@ -105,41 +104,19 @@ public class AquaticCharacter extends CustomPlayer{
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("MagicRod");
-        UnlockTracker.markRelicAsSeen("MagicCaster");
-
-        /*
-        retVal.add("Anchor");
-        retVal.add("PlatinumReel");
-        retVal.add("HornCleat");
-        retVal.add("Caviar");
-        retVal.add("CenozoicTooth");
-        retVal.add("OvenMitt");
-        /*
-        RelicLibrary.add(new MagicCaster());
-        RelicLibrary.add(new PlatinumReel());
-        RelicLibrary.add(new WornOar());
-        RelicLibrary.add(new Lifebuoy());
-        RelicLibrary.add(new CenozoicTooth());
-        RelicLibrary.add(new Caviar());
-        RelicLibrary.add(new Amoeba());
-        */
+        retVal.add("AquaticMod:MagicRod");
+        UnlockTracker.markRelicAsSeen("AquaticMod:MagicCaster");
         return retVal;
     }
     
     
     @Override
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo("The Aquatic", "TODO",
-                78, 78, 0, 99, 5,
+        return new CharSelectInfo("The Aquatic", "An archaic sea creature mobilized in a bowl. NL Overwhelms enemies with its swimming prowess.",
+                75, 75, 0, 99, 5,
             this, getStartingRelics(), getStartingDeck(), false);
     }
     
-    
-
-
-
-
     @Override
     public String getTitle(PlayerClass var1) {
         return "The Aquatic";
@@ -150,7 +127,6 @@ public class AquaticCharacter extends CustomPlayer{
         return AbstractCardEnum.AQUATIC;
     }
 
-
     @Override
     public AbstractCard getStartCardForEvent() {
         return new Pearl();
@@ -158,7 +134,7 @@ public class AquaticCharacter extends CustomPlayer{
 
     @Override
     public Color getCardTrailColor() {
-        return Color.SLATE;
+        return Color.CYAN;
     }
 
     @Override
@@ -176,10 +152,10 @@ public class AquaticCharacter extends CustomPlayer{
         return 4;
     }
 
-
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("BYRD_DEATH", MathUtils.random(-0.2f, 0.2f));
+        CardCrawlGame.sound.playA("AquaticMod:INTRO", 0);
+        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, true);
     }
 
     @Override
@@ -193,7 +169,6 @@ public class AquaticCharacter extends CustomPlayer{
         return "The Aquatic";
     }
 
-
     @Override
     public AbstractPlayer newInstance() {
         return new AquaticCharacter(this.name);
@@ -206,7 +181,7 @@ public class AquaticCharacter extends CustomPlayer{
     
     @Override
     public Color getCardRenderColor() {
-        return Color.SLATE;
+        return Color.CYAN;
     }
     
     @Override
@@ -216,16 +191,25 @@ public class AquaticCharacter extends CustomPlayer{
 
     @Override
     public Color getSlashAttackColor() {
-        return Color.SLATE;
+        return Color.BLUE;
     }
     
     @Override
     public String getSpireHeartText() {
-        return "NL You invoke an ominous curse...";
+        return "NL You flop like a fish...";
     }
     
     @Override
     public AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.POISON, AbstractGameAction.AttackEffect.SMASH, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.POISON, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_VERTICAL};
+    }
+
+    @Override
+    public List<CutscenePanel> getCutscenePanels() {
+        List<CutscenePanel> panels = new ArrayList();
+        panels.add(new CutscenePanel(AquaticMod.getResourcePath("scenes/victory1.png")));
+        panels.add(new CutscenePanel(AquaticMod.getResourcePath("scenes/victory2.png")));
+        panels.add(new CutscenePanel(AquaticMod.getResourcePath("scenes/victory3.png")));
+        return panels;
     }
 }

@@ -21,21 +21,17 @@ public class Cloister extends AbstractAquaticCard {
 
     private static final int COST = 0;
     private static final int BLOCK = 3;
-    private static final int BLOCK_BONUS = 3;
-    private static final int MAGIC = 3;
-    private static final int MAGIC_BONUS = 1;
+    private static final int BLOCK_BONUS = 2;
 
     public Cloister() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         this.baseBlock = BLOCK;
-        this.magicNumber = this.baseMagicNumber = MAGIC;
-        this.isInnate = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
         if (p.hasPower(EntanglePower.POWER_ID)) {
-            addToBot(new GainBlockAction(p, p, magicNumber));
+            addToBot(new GainBlockAction(p, p, block));
         }
     }
 
@@ -47,7 +43,6 @@ public class Cloister extends AbstractAquaticCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(BLOCK_BONUS);
-            upgradeMagicNumber(MAGIC_BONUS);
         }
     }
 }

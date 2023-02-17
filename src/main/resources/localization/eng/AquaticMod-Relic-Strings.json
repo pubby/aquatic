@@ -1,0 +1,49 @@
+{
+    "AquaticMod:Amoeba":{
+        "NAME": "Amoeba",
+        "FLAVOR": "This single-celled organism is ominously shaking.",
+        "DESCRIPTIONS":["Gain [B] and add a Slimed into your hand at the start of each turn."]
+    },
+
+    "AquaticMod:Caviar":{
+        "NAME": "Caviar",
+        "FLAVOR": "A delicious treat and exotic type of egg.",
+        "DESCRIPTIONS":["Whenever you add a #yCommon card to your deck, it is #yUpgraded."]
+    },
+
+    "AquaticMod:CenozoicTooth":{
+        "NAME": "Cenozoic Tooth",
+        "FLAVOR": "An ancient artifact from a long forgotten age.",
+        "DESCRIPTIONS":["Whenever you play a #yPower, gain #b2 #yThorns."]
+    },
+
+    "AquaticMod:Lifebuoy":{
+        "NAME": "Lifebuoy",
+        "FLAVOR": "Brightly colored to attract underwater predators.",
+        "DESCRIPTIONS":["For the first 3 turns of combat, gain #b", " #yBlock at the start of your turn."]
+    },
+
+    "AquaticMod:MagicRod":{
+        "NAME": "Magic Rod",
+        "FLAVOR": "You can catch something big with this.",
+        "DESCRIPTIONS":["At the start of each combat, add a #yHook into your hand."]
+    },
+
+    "AquaticMod:OvenMitt":{
+        "NAME": "Oven Mitt",
+        "FLAVOR": "Perfect for baking cookies!",
+        "DESCRIPTIONS":["You do not take damage from #yMines."]
+    },
+
+    "AquaticMod:PlatinumReel":{
+        "NAME": "Platinum Reel",
+        "FLAVOR": "Why is it so shiny? The more you look at it, the more it sparkles.",
+        "DESCRIPTIONS":["At the start of each combat, add #b2 #yUpgraded #yHooks into your hand."]
+    },
+
+    "AquaticMod:WornOar":{
+        "NAME": "Worn Oar",
+        "FLAVOR": "Looks a bit unsafe.",
+        "DESCRIPTIONS":["At the start of each combat, gain 3 #ySwim."]
+    }
+}

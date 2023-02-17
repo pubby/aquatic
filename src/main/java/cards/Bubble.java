@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import aquaticmod.powers.SwimPower;
+import aquaticmod.patches.AttackEffectEnum;
 
 public class Bubble extends AbstractAquaticCard {
     public static final String ID = "Bubble";
@@ -33,7 +34,7 @@ public class Bubble extends AbstractAquaticCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AttackEffectEnum.WATER));
         addToBot(new ApplyPowerAction(p, p, new SwimPower(magicNumber), magicNumber));
     }
 

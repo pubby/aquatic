@@ -22,7 +22,7 @@ public class RazorFin extends AbstractAquaticCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 7;
-    private static final int DAMAGE_BONUS = 2;
+    private static final int DAMAGE_BONUS = 1;
     private static final int MAGIC = 1;
     private static final int MAGIC_BONUS = 1;
 

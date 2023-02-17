@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import aquaticmod.powers.MinePower;
+import aquaticmod.fields.FrozenField;
 
 public class Nuke extends AbstractAquaticCard {
     public static final String ID = "Nuke";
@@ -29,7 +30,7 @@ public class Nuke extends AbstractAquaticCard {
     public Nuke() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = MAGIC;
-        startFrozen();
+        FrozenField.startFrozenCard(this);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

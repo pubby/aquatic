@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -32,6 +33,7 @@ import aquaticmod.characters.AquaticCharacter;
 import aquaticmod.patches.AbstractCardEnum;
 import aquaticmod.patches.AquaticEnum;
 import aquaticmod.relics.*;
+import aquaticmod.potions.*;
 import aquaticmod.AssetLoader;
 //import aquaticmod.powers.AbstractAquaticPower;
 
@@ -63,7 +65,7 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
     private static final String POWER_CARD = "512/bg_power_aquatic.png";
     private static final String FROZEN_CARD = "512/bg_frozen_aquatic.png";
 
-    private static final String ENERGY_ORB = "512/card_witch_orb.png";
+    private static final String ENERGY_ORB = "512/card_aquatic_orb.png";
 
     private static final String ATTACK_CARD_PORTRAIT = "1024/bg_attack_aquatic.png";
     private static final String SKILL_CARD_PORTRAIT = "1024/bg_skill_aquatic.png";
@@ -83,6 +85,7 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
     public static AssetLoader assets = new AssetLoader();
 
     public static Texture frozenTexture;
+    public static Texture waterTexture;
 
     public static final String getResourcePath(String resource) {
         return ASSETS_FOLDER + "/" + resource;
@@ -111,6 +114,8 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
     }
 
     public void receivePostInitialize() {
+        BaseMod.addPotion(BottledWater.class, Color.CYAN.cpy(), Color.WHITE.cpy(), null, BottledWater.POTION_ID, AquaticEnum.AQUATIC);
+
         Texture badgeTexture = new Texture(getResourcePath(BADGE_IMG));
         ModPanel settingsPanel = new ModPanel();
         settingsPanel.addUIElement(new ModLabel("No settings", 400.0f, 700.0f, settingsPanel, (me) -> {
@@ -132,7 +137,6 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
 
 
     public void receiveEditRelics() {
-        //RelicLibrary.add(new BigFin());
         RelicLibrary.add(new MagicRod());
         RelicLibrary.add(new PlatinumReel());
         RelicLibrary.add(new WornOar());
@@ -141,12 +145,6 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
         RelicLibrary.add(new Caviar());
         RelicLibrary.add(new Amoeba());
         RelicLibrary.add(new OvenMitt());
-        /*
-        BaseMod.addRelicToCustomPool(new BirdCage(), AbstractCardEnum.WITCH);
-        BaseMod.addRelicToCustomPool(new WalkingCane(), AbstractCardEnum.WITCH);
-        BaseMod.addRelicToCustomPool(new Scissors(), AbstractCardEnum.WITCH);
-        BaseMod.addRelicToCustomPool(new ToyHorse(), AbstractCardEnum.WITCH);
-        */
     }
 
     public void receiveEditCards() {
@@ -158,10 +156,9 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
 
         // COMMON (20) (goal 19?)
 
-        // Attacks (12)
+        // Attacks (11)
         BaseMod.addCard(new BrineBlast());
         BaseMod.addCard(new Bubble());
-        BaseMod.addCard(new FieryFish());
         BaseMod.addCard(new HarpoonShot());
         BaseMod.addCard(new Nibble());
         BaseMod.addCard(new RazorFin());
@@ -183,18 +180,18 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
         BaseMod.addCard(new ShoreScales());
         BaseMod.addCard(new NetCast());
 
-        // UNCOMMON (36)
+        // UNCOMMON (35)
 
         // Attacks (8)
-        BaseMod.addCard(new BarnacleBlitz());
         BaseMod.addCard(new Compression());
         BaseMod.addCard(new Demolish());
+        BaseMod.addCard(new FieryFish());
         BaseMod.addCard(new MopUp());
         BaseMod.addCard(new RogueWave());
         BaseMod.addCard(new Surf());
         BaseMod.addCard(new TentacleSlap());
 
-        // Skills (18)
+        // Skills (17)
         BaseMod.addCard(new AlgaeBloom());
         BaseMod.addCard(new BlownOut());
         BaseMod.addCard(new BrightScales());
@@ -226,9 +223,10 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
         BaseMod.addCard(new Waterborn());
         BaseMod.addCard(new YoHoHo());
 
-        // RARE (19) (goal 17?)
+        // RARE (20) (goal 17?)
 
-        // Attacks (6)
+        // Attacks (7)
+        BaseMod.addCard(new BarnacleBlitz());
         BaseMod.addCard(new FeedingFrenzy());
         BaseMod.addCard(new FromBelow());
         BaseMod.addCard(new KrakenGo());
@@ -264,6 +262,9 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
 
         String uiStrings = Gdx.files.internal("localization/eng/AquaticMod-UI-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
+
+        String potionStrings = Gdx.files.internal("localization/eng/AquaticMod-Potion-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
     }
 
 
@@ -277,41 +278,18 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
                 BaseMod.addKeyword(keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
-
-        //BaseMod.addKeyword(modID.toLowerCase(), "Swim", ["swim"], "Hello world");
-        //BaseMod.addKeyword(modID.toLowerCase(), "Swim", ["Swim"], "Hello world2");
     }
 
     public void receivePostDraw(AbstractCard c) {
-        /*
-        AbstractPlayer player = AbstractDungeon.player;
-        //custom callback for card draw on powers
-        for (AbstractPower p : player.powers) {
-            if (p instanceof AbstractAquaticPower) {
-                p.onCardDraw(c);
-            }
-        }
-        cardsDrawnThisTurn++;
-        cardsDrawnTotal++;
-        if (c.type == CardType.CURSE) {
-            cursesDrawnTotal++;
-        }
-        */
     }
 
     @Override
     public boolean receivePreMonsterTurn(AbstractMonster m) {
-        //cardsDrawnThisTurn = 0;
         return true;
     }
 
     @Override
     public void receiveOnBattleStart(AbstractRoom room) {
-        /*
-        cardsDrawnTotal = 0;
-        cursesDrawnTotal = 0;
-        cardsDrawnThisTurn = 0;
-        */
     }
 
     @Override
@@ -322,6 +300,9 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
         BaseMod.addAudio("AquaticMod:NUKE", "aquaticmod_audio/nuke.ogg");
         BaseMod.addAudio("AquaticMod:SONAR", "aquaticmod_audio/sonar.ogg");
         BaseMod.addAudio("AquaticMod:ICE_BREAK", "aquaticmod_audio/icebreak.ogg");
+        BaseMod.addAudio("AquaticMod:WATER", "aquaticmod_audio/water.ogg");
+        BaseMod.addAudio("AquaticMod:SLAP", "aquaticmod_audio/slap.ogg");
+        BaseMod.addAudio("AquaticMod:INTRO", "aquaticmod_audio/intro.ogg");
     }
 
 }
