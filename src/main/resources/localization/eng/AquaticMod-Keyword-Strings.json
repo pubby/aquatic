@@ -8,8 +8,8 @@
   },
   {
     "NAMES": [
-      "entangle",
-      "entangled"
+      "entangled",
+      "entangle"
     ],
     "PROPERNAME": "Entangled",
     "DESCRIPTION": "Entangled prevents you from attacking for a turn."
@@ -22,15 +22,7 @@
       "unfrozen"
     ],
     "PROPERNAME": "Frozen",
-    "DESCRIPTION": "Frozen cards have no effect the next time they are played."
-  },
-  {
-    "NAMES": [
-      "hex",
-      "hexed"
-    ],
-    "PROPERNAME": "Hex",
-    "DESCRIPTION": "When you play a Skill, gain a Dazed to your draw pile."
+    "DESCRIPTION": "Frozen cards unfreeze when played instead of their normal effect."
   },
   {
     "NAMES": [

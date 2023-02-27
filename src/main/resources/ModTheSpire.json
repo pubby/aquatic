@@ -3,7 +3,7 @@
   "name": "The Aquatic",
   "author_list": ["pubby"],
   "description": "Adds the Aquatic character.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "mts_version": "3.6.3",
   "update_json": "TODO",
   "dependencies": ["basemod"]

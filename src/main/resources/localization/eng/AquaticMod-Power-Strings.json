@@ -21,6 +21,12 @@
     "DESCRIPTIONS": ["When you end your turn Entangled, gain #", " #y Strength and #yDexterity."]
   },
 
+  "AquaticMod:DetonatePower": {
+    "NAME": "Detonate",
+    "DESCRIPTIONS": ["You do not take damage from #yMines this turn.", 
+                     "You do not take damage from #yMines for #b", " turns."]
+  },
+
   "AquaticMod:DrowningPoolPower": {
     "NAME": "Drowning Pool",
     "DESCRIPTIONS": ["Whenever you play a Deep card, deal #b", " damage to ALL enemies."]

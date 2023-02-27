@@ -88,6 +88,7 @@
     "AquaticMod:Compression": {
         "NAME": "Compression",
         "DESCRIPTION": "Deal !M! damage for each card in your hand. NL Shuffle this card into your draw pile.",
+        "UPGRADE_DESCRIPTION": "Deal !M! damage for each card in your hand +4. NL Shuffle this card into your draw pile.",
         "EXTENDED_DESCRIPTION": [" NL (Deals !D! damage.)"]
     },
 
@@ -123,8 +124,8 @@
 
     "AquaticMod:Detonate": {
         "NAME": "Detonate",
-        "DESCRIPTION": "Deal !D! damage. NL Mines do not damage you from this Attack.",
-        "UPGRADE_DESCRIPTION": "Retain. NL Deal !D! damage. NL Mines do not damage you from this Attack."
+        "DESCRIPTION": "You do not take damage from Mines this turn. NL Deal !D! damage.",
+        "UPGRADE_DESCRIPTION": "You do not take damage from Mines NL for 2 turns. NL Deal !D! damage."
     },
 
     "AquaticMod:Dive": {
@@ -187,7 +188,7 @@
 
     "AquaticMod:Iceberg": {
         "NAME": "Iceberg",
-        "DESCRIPTION": "Frozen. NL Attacks Retain."
+        "DESCRIPTION": "Attacks Retain."
     },
 
     "AquaticMod:IcicleWall": {
@@ -234,7 +235,7 @@
 
     "AquaticMod:MineField": {
         "NAME": "Minefield",
-        "DESCRIPTION": "At the start of your turn, apply !M! Mines to ALL enemies X times."
+        "DESCRIPTION": "At the start of your turn, apply !M! Mines to ALL enemies."
     },
 
     "AquaticMod:MopUp": {
@@ -336,7 +337,7 @@
 
     "AquaticMod:ShrimpyStrike": {
         "NAME": "Shrimpy Strike",
-        "DESCRIPTION": "Deal !D! damage. NL If Fatal, Upgrade this card permanently.",
+        "DESCRIPTION": "Frozen. NL Deal !D! damage. NL If Fatal, Upgrade this card permanently.",
         "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times."
     },
 
@@ -372,7 +373,7 @@
 
     "AquaticMod:SquidForm": {
         "NAME": "Squid Form",
-        "DESCRIPTION": "ALL Attacks cost 0. NL Whenever you play !M! Attacks in a turn, NL gain Entangled."
+        "DESCRIPTION": "Attacks cost 0. NL Whenever you play !M! Attacks in a turn, NL gain Entangled."
     },
 
     "AquaticMod:SwiftSwim": {
