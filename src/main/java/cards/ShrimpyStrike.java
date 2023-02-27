@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import aquaticmod.actions.ShrimpyAction;
+import aquaticmod.fields.FrozenField;
 
 public class ShrimpyStrike extends AbstractAquaticCard {
     public static final String ID = "ShrimpyStrike";
@@ -30,6 +31,7 @@ public class ShrimpyStrike extends AbstractAquaticCard {
         this.baseDamage = DAMAGE;
         this.magicNumber = this.baseMagicNumber = MAGIC;
         this.tags.add(CardTags.STRIKE);
+        FrozenField.startFrozenCard(this);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -53,6 +55,7 @@ public class ShrimpyStrike extends AbstractAquaticCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(MAGIC_BONUS);
+            FrozenField.unstartFrozenCard(this);
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

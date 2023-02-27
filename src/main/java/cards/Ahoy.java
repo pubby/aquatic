@@ -46,11 +46,5 @@ public class Ahoy extends AbstractAquaticCard {
             upgradeBaseCost(UPGRADE_COST);
         }
     }
-
-    @Override
-    public void triggerOnGlowCheck() {
-        glow50();
-    }
-
 }
 

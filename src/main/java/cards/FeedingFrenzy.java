@@ -22,7 +22,7 @@ public class FeedingFrenzy extends AbstractAquaticCard {
     private static final int POOL = 1;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 16;
+    private static final int DAMAGE = 12;
     private static final int DAMAGE_BONUS = 4;
     private static final int MAGIC = 4;
     private static final int MAGIC_BONUS = -1;

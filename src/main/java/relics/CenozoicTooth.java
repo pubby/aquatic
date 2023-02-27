@@ -13,7 +13,7 @@ import aquaticmod.relics.AbstractAquaticRelic;
 
 public class CenozoicTooth extends AbstractAquaticRelic {
     public static final String ID = "AquaticMod:CenozoicTooth";
-    private static final RelicTier TIER = RelicTier.RARE;
+    private static final RelicTier TIER = RelicTier.UNCOMMON;
     private static final String IMG = "relics/cenozoictooth.png";
     private static final LandingSound SOUND = LandingSound.FLAT;
     private static final int THORNS = 2;

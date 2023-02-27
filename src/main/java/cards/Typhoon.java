@@ -26,6 +26,7 @@ public class Typhoon extends AbstractAquaticCard {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.exhaust = true;
+        this.isMultiDamage = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import aquaticmod.powers.IcebergPower;
-import aquaticmod.fields.FrozenField;
+//import aquaticmod.fields.FrozenField;
 
 public class Iceberg extends AbstractAquaticCard {
     public static final String ID = "Iceberg";
@@ -22,12 +22,12 @@ public class Iceberg extends AbstractAquaticCard {
 
     private static final int POOL = 1;
 
-    private static final int COST = 1;
-    private static final int UPGRADE_COST = 0;
+    private static final int COST = 2;
+    private static final int UPGRADE_COST = 1;
 
     public Iceberg() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
-        FrozenField.startFrozenCard(this);
+        //FrozenField.startFrozenCard(this);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -9,7 +9,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import aquaticmod.fields.DeepField;
-import aquaticmod.fields.DetonateField;
+//import aquaticmod.fields.DetonateField;
+import aquaticmod.powers.DetonatePower;
 
 public class Detonate extends AbstractAquaticCard {
     public static final String ID = "Detonate";
@@ -23,17 +24,22 @@ public class Detonate extends AbstractAquaticCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 8;
+    private static final int MAGIC = 1;
+    private static final int MAGIC_BONUS = 1;
 
     public Detonate() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         this.baseDamage = DAMAGE;
+        this.baseMagicNumber = this.magicNumber = MAGIC;
+        //selfRetain = true;
         //this.exhaust = true;
         //DeepField.deep.set(this, true);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         DamageInfo info = new DamageInfo(p, damage, damageTypeForTurn);
-        DetonateField.detonates.set(info, true);
+        //DetonateField.detonates.set(info, true);
+        addToBot(new ApplyPowerAction(p, p, new DetonatePower(p, magicNumber)));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, info, AbstractGameAction.AttackEffect.FIRE));
     }
 
@@ -44,7 +50,7 @@ public class Detonate extends AbstractAquaticCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            selfRetain = true;
+            upgradeMagicNumber(MAGIC_BONUS);
             rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();
         }

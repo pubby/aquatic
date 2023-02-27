@@ -12,7 +12,7 @@ import aquaticmod.relics.AbstractAquaticRelic;
 
 public class Caviar extends AbstractAquaticRelic {
     public static final String ID = "AquaticMod:Caviar";
-    private static final RelicTier TIER = RelicTier.UNCOMMON;
+    private static final RelicTier TIER = RelicTier.RARE;
     private static final String IMG = "relics/caviar.png";
     private static final LandingSound SOUND = LandingSound.FLAT;
     private static final int THORNS = 2;

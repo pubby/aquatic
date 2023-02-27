@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import com.megacrit.cardcrawl.vfx.combat.WhirlwindEffect;
 
 public class TyphoonAction
@@ -27,13 +28,13 @@ extends AbstractGameAction {
     private DamageInfo.DamageType damageTypeForTurn;
     private int energyOnUse;
 
-    public TyphoonAction(AbstractPlayer p, int[] multiDamage, DamageInfo.DamageType damageTypeForTurn, boolean freeToPlayOnce, int energyOnUse) {
+    public TyphoonAction(AbstractPlayer p, int[] multiDamage, DamageInfo.DamageType damageType, boolean freeToPlayOnce, int energyOnUse) {
         this.p = p;
         this.multiDamage = multiDamage;
         this.freeToPlayOnce = freeToPlayOnce;
         this.duration = Settings.ACTION_DUR_XFAST;
         this.actionType = AbstractGameAction.ActionType.SPECIAL;
-        this.damageTypeForTurn = damageTypeForTurn;
+        this.damageTypeForTurn = damageType;
         this.energyOnUse = energyOnUse;
     }
 
@@ -49,6 +50,17 @@ extends AbstractGameAction {
         }
         if (effect > 0) {
             for (int i = 0; i < effect; ++i) {
+                if (i == 0) {
+                    addToBot(new SFXAction("ATTACK_WHIRLWIND"));
+                    addToBot(new VFXAction(new WhirlwindEffect(), 0.0f));
+                }
+                addToBot(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1f));
+                addToBot(new VFXAction(this.p, new CleaveEffect(), 0.0f));
+
+                this.addToBot(new DamageAllEnemiesAction(this.p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE, true));
+            }
+
+            for (int i = 0; i < effect; ++i) {
                 int temp = AbstractDungeon.getCurrRoom().monsters.monsters.size();
                 for (int j = 0; j < temp; ++j) {
                     AbstractCreature rm = (AbstractCreature)AbstractDungeon.getCurrRoom().monsters.monsters.get(j);
@@ -57,14 +69,14 @@ extends AbstractGameAction {
 
                     //addToBot(new DamageEnemyAction(p, multiDamage[j], damageType, AbstractGameAction.AttackEffect.NONE, true));
 
-                    addToTop(new ApplyPowerAction(rm, AbstractDungeon.player, new WeakPower(rm, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
-                    addToTop(new DamageAction(rm, new DamageInfo(p, multiDamage[j], damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-                    addToTop(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1f));
-                    addToTop(new VFXAction(new LightningEffect(rm.hb.cX, rm.hb.cY)));
+                    if(i == 0) {
+                        addToBot(new SFXAction("ORB_LIGHTNING_EVOKE", 0.1f));
+                        addToBot(new VFXAction(new LightningEffect(rm.hb.cX, rm.hb.cY)));
+                    }
+
+                    addToBot(new ApplyPowerAction(rm, AbstractDungeon.player, new WeakPower(rm, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
                 }
             }
-
-            addToTop(new VFXAction(new WhirlwindEffect(), 0.0f));
 
             if (!freeToPlayOnce) {
                 p.energy.use(EnergyPanel.totalCount);

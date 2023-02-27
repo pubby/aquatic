@@ -23,9 +23,9 @@ public class FromBelow extends AbstractAquaticCard {
     private static final int POOL = 0;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 4;
     private static final int DAMAGE_BONUS = 2;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
 
     public FromBelow() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);

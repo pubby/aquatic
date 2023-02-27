@@ -25,8 +25,8 @@ public class StoneAged extends AbstractAquaticCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 2;
-    private static final int MAGIC = 8;
-    private static final int MAGIC_BONUS = 2;
+    private static final int MAGIC = 7;
+    private static final int MAGIC_BONUS = 3;
 
     public StoneAged() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);

@@ -9,15 +9,15 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import basemod.abstracts.CustomPotion;
 import aquaticmod.powers.SwimPower;
 
-public class BottledWater extends AbstractPotion {
+public class BottledWater extends CustomPotion {
     public static final String POTION_ID = "AquaticMod:BottledWater";
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString("AquaticMod:BottledWater");
 
     public BottledWater() {
-        super(BottledWater.potionStrings.NAME, POTION_ID, AbstractPotion.PotionRarity.COMMON, AbstractPotion.PotionSize.SPHERE, AbstractPotion.PotionColor.WHITE);
-        this.labOutlineColor = Settings.RED_RELIC_COLOR;
+        super(BottledWater.potionStrings.NAME, POTION_ID, AbstractPotion.PotionRarity.COMMON, AbstractPotion.PotionSize.BOTTLE, AbstractPotion.PotionColor.WHITE);
         this.isThrown = false;
     }
 

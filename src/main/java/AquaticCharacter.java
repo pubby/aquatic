@@ -134,7 +134,7 @@ public class AquaticCharacter extends CustomPlayer{
 
     @Override
     public Color getCardTrailColor() {
-        return Color.CYAN;
+        return Color.CYAN.cpy();
     }
 
     @Override
@@ -181,7 +181,7 @@ public class AquaticCharacter extends CustomPlayer{
     
     @Override
     public Color getCardRenderColor() {
-        return Color.CYAN;
+        return Color.CYAN.cpy();
     }
     
     @Override

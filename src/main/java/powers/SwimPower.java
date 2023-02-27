@@ -61,12 +61,7 @@ public class SwimPower extends AbstractAquaticPower {
             int numTriggers = (usedCard instanceof Surf && !FrozenField.frozen.get(usedCard)) ? amount : 1;
 
             trigger(numTriggers);
-
-            if (amount <= numTriggers) {
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, ID));
-            } else {
-                AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(owner, owner, ID, numTriggers));
-            }
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(owner, owner, ID, numTriggers));
         }
     }
 }

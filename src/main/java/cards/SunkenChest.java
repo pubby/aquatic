@@ -21,7 +21,7 @@ public class SunkenChest extends AbstractAquaticCard {
 
     private static final int POOL = 0;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int MAGIC = 2;
     //private static final int MAGIC_BONUS = 1;
 

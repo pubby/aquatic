@@ -19,8 +19,8 @@ public class Chitin extends AbstractAquaticCard {
 
     private static final int COST = 2;
     private static final int BLOCK = 14;
-    private static final int BLOCK_BONUS = 1;
-    private static final int MAGIC = 4;
+    private static final int BLOCK_BONUS = 2;
+    private static final int MAGIC = 3;
     private static final int MAGIC_BONUS = 1;
 
     public Chitin() {

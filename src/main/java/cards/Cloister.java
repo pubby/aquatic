@@ -21,7 +21,7 @@ public class Cloister extends AbstractAquaticCard {
 
     private static final int COST = 0;
     private static final int BLOCK = 3;
-    private static final int BLOCK_BONUS = 2;
+    private static final int BLOCK_BONUS = 1;
 
     public Cloister() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);

@@ -38,10 +38,7 @@ public class BrightScales extends AbstractAquaticCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int amount = calcAmount();
-        if(amount > 0) {
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        }
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 
     public AbstractCard makeCopy() {

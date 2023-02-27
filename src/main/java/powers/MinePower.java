@@ -17,8 +17,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import aquaticmod.powers.NuclearPower;
+import aquaticmod.powers.DetonatePower;
 import aquaticmod.relics.OvenMitt;
-import aquaticmod.fields.DetonateField;
 
 import aquaticmod.AquaticMod;
 
@@ -54,17 +54,19 @@ public class MinePower extends AbstractAquaticPower {
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.type == DamageInfo.DamageType.NORMAL && info.owner != null && info.owner != owner && !processed) {
+        //if (info.type == DamageInfo.DamageType.NORMAL && !processed) {
             flash();
 
             addToTop(new DamageAction(owner, new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE, true));
 
-            if (!DetonateField.detonates.get(info)) {
-                if (AbstractDungeon.player.hasRelic(OvenMitt.ID)) {
-                    AbstractDungeon.player.getRelic(OvenMitt.ID).flash();
-                }
-                else {
-                    addToTop(new DamageAction(info.owner, new DamageInfo(info.owner, backfireAmount(), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE, true));
-                }
+            if (AbstractDungeon.player.hasRelic(OvenMitt.ID)) {
+                AbstractDungeon.player.getRelic(OvenMitt.ID).flash();
+            }
+            else if (AbstractDungeon.player.hasPower(DetonatePower.POWER_ID)) {
+                AbstractDungeon.player.getPower(DetonatePower.POWER_ID).flash();
+            }
+            else {
+                addToTop(new DamageAction(info.owner, new DamageInfo(info.owner, backfireAmount(), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE, true));
             }
 
             if (owner.hasPower(NuclearPower.POWER_ID)) {

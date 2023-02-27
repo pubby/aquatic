@@ -32,14 +32,6 @@ public class UpToSpeed extends AbstractAquaticCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        /*
-        if (p.hasPower(SwimPower.POWER_ID)) {
-            AbstractPower power = p.getPower(SwimPower.POWER_ID);
-            power.amount = 0;
-        }
-
-        addToTop(new RemoveSpecificPowerAction(p, p, SwimPower.POWER_ID));
-        */
         addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, magicNumber), magicNumber));
     }
 

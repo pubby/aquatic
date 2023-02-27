@@ -13,14 +13,14 @@ public class CoralScales extends AbstractAquaticCard {
     public static final String ID = "CoralScales";
     public static final String IMG = "cards/coralscales.png";
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
 
     private static final int POOL = 1;
 
     private static final int COST = 1;
-    private static final int BLOCK = 7;
+    private static final int BLOCK = 10;
     private static final int BLOCK_BONUS = 3;
 
     public CoralScales() {

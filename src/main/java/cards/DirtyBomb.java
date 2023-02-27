@@ -17,7 +17,7 @@ public class DirtyBomb extends AbstractAquaticCard {
     public static final String ID = "DirtyBomb";
     public static final String IMG = "cards/dirtybomb.png";
 
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
 

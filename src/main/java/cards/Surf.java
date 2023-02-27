@@ -23,13 +23,14 @@ public class Surf extends AbstractAquaticCard {
     private static final int POOL = 1;
 
     private static final int COST = 0;
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 6;
     private static final int DAMAGE_BONUS = 3;
 
     public Surf() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.tags.add(CardTags.STRIKE);
+        this.isMultiDamage = true;
         //this.exhaust = true;
     }
 

@@ -21,8 +21,8 @@ public class IcyScales extends AbstractAquaticCard {
     private static final int POOL = 1;
 
     private static final int COST = 1;
-    private static final int BLOCK = 15;
-    private static final int BLOCK_BONUS = 5;
+    private static final int BLOCK = 14;
+    private static final int BLOCK_BONUS = 4;
     //private static final int MAGIC = 1;
     //private static final int MAGIC_BONUS = 1;
 

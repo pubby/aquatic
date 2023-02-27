@@ -114,7 +114,7 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
     }
 
     public void receivePostInitialize() {
-        BaseMod.addPotion(BottledWater.class, Color.CYAN.cpy(), Color.WHITE.cpy(), null, BottledWater.POTION_ID, AquaticEnum.AQUATIC);
+        BaseMod.addPotion(BottledWater.class, Color.CYAN.cpy(), null, null, BottledWater.POTION_ID, AquaticEnum.AQUATIC);
 
         Texture badgeTexture = new Texture(getResourcePath(BADGE_IMG));
         ModPanel settingsPanel = new ModPanel();
@@ -196,12 +196,11 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
         BaseMod.addCard(new BlownOut());
         BaseMod.addCard(new BrightScales());
         BaseMod.addCard(new Chitin());
-        BaseMod.addCard(new CoralScales());
         BaseMod.addCard(new DarkWaters());
         BaseMod.addCard(new Deploy());
+        BaseMod.addCard(new DirtyBomb());
         BaseMod.addCard(new Detonate());
         BaseMod.addCard(new FrozenSolid());
-        BaseMod.addCard(new GoneFishin());
         BaseMod.addCard(new IcicleWall());
         BaseMod.addCard(new IcyScales());
         BaseMod.addCard(new Lure());
@@ -236,8 +235,9 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
 
         // Skills (8)
         BaseMod.addCard(new Clone());
-        BaseMod.addCard(new DirtyBomb());
+        BaseMod.addCard(new CoralScales());
         BaseMod.addCard(new Dive());
+        BaseMod.addCard(new GoneFishin());
         BaseMod.addCard(new Nuke());
         BaseMod.addCard(new SunkenChest());
         BaseMod.addCard(new Tsunami());

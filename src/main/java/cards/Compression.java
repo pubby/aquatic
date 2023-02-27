@@ -22,7 +22,7 @@ public class Compression extends AbstractAquaticCard {
 
     private static final int COST = 1;
     private static final int MAGIC = 2;
-    private static final int MAGIC_BONUS = 1;
+    //private static final int MAGIC_BONUS = 1;
 
     public Compression() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);
@@ -38,8 +38,11 @@ public class Compression extends AbstractAquaticCard {
             ++count;
         }
         this.baseDamage = count * magicNumber;
+        if (upgraded) {
+            baseDamage += 4;
+        }
         super.applyPowers();
-        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        this.rawDescription = (upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION) + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }
 
@@ -54,7 +57,9 @@ public class Compression extends AbstractAquaticCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(MAGIC_BONUS);
+            //upgradeMagicNumber(MAGIC_BONUS);
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 
