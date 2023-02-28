@@ -1,6 +1,6 @@
 {
     "AquaticMod:BottledWater":{
         "NAME": "Bottled Water",
-        "DESCRIPTIONS":["Gain #b", " #ySwim."]
+        "DESCRIPTIONS":["Gain #b", " #ySwim.", "swim"]
     }
 }

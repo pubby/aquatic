@@ -1,23 +1,28 @@
 package aquaticmod;
 
+import basemod.*;
 import basemod.BaseMod;
 import basemod.ModLabel;
 import basemod.ModPanel;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 //import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
@@ -26,6 +31,7 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import aquaticmod.cards.*;
@@ -35,7 +41,9 @@ import aquaticmod.patches.AquaticEnum;
 import aquaticmod.relics.*;
 import aquaticmod.potions.*;
 import aquaticmod.AssetLoader;
-//import aquaticmod.powers.AbstractAquaticPower;
+
+import java.util.ArrayList;
+import java.util.Properties;
 
 import java.nio.charset.StandardCharsets;
 
@@ -82,6 +90,9 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
 
     public static final String BADGE_IMG = "badge.png";
 
+    public static final String PROP_RELIC_SHARING = "contentSharing_relics";
+    public static final String PROP_POTION_SHARING = "contentSharing_potions";
+
     public static AssetLoader assets = new AssetLoader();
 
     public static Texture frozenTexture;
@@ -90,6 +101,11 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
     public static final String getResourcePath(String resource) {
         return ASSETS_FOLDER + "/" + resource;
     }
+
+    public static Properties aquaticDefault = new Properties();
+    public static ArrayList<AbstractRelic> shareableRelics = new ArrayList<>();
+    public static boolean contentSharing_relics = true;
+    public static boolean contentSharing_potions = true;
 
     public AquaticMod() {
         BaseMod.subscribe(this);
@@ -100,6 +116,11 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
                 getResourcePath(ENERGY_ORB),
                 getResourcePath(ATTACK_CARD_PORTRAIT), getResourcePath(SKILL_CARD_PORTRAIT), getResourcePath(POWER_CARD_PORTRAIT),
                 getResourcePath(ENERGY_ORB_PORTRAIT));
+
+        aquaticDefault.setProperty(PROP_RELIC_SHARING,  "FALSE");
+        aquaticDefault.setProperty(PROP_POTION_SHARING, "FALSE");
+
+        loadConfigData();
     }
 
     public static void loadFrozenTexture() {
@@ -114,19 +135,82 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
     }
 
     public void receivePostInitialize() {
-        BaseMod.addPotion(BottledWater.class, Color.CYAN.cpy(), null, null, BottledWater.POTION_ID, AquaticEnum.AQUATIC);
-
-        Texture badgeTexture = new Texture(getResourcePath(BADGE_IMG));
-        ModPanel settingsPanel = new ModPanel();
-        settingsPanel.addUIElement(new ModLabel("No settings", 400.0f, 700.0f, settingsPanel, (me) -> {
-        }));
-        BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
+        addPotions();
 
         Settings.isDailyRun = false;
         Settings.isTrial = false;
         Settings.isDemo = false;
+
+        // Create the Mod Menu
+
+        UIStrings configStrings = CardCrawlGame.languagePack.getUIString("AquaticMod:ConfigMenu");
+        ModPanel settingsPanel = new ModPanel();
+
+        ModLabeledToggleButton contentSharingBtnRelics = new ModLabeledToggleButton(configStrings.TEXT[0],
+                350.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                contentSharing_relics, settingsPanel, (label) -> {}, (button) -> {
+            contentSharing_relics = button.enabled;
+            adjustRelics();
+            saveData();
+        });
+
+        ModLabeledToggleButton contentSharingBtnPotions = new ModLabeledToggleButton(configStrings.TEXT[1],
+                350.0f, 550.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,
+                contentSharing_potions, settingsPanel, (label) -> {}, (button) -> {
+            contentSharing_potions = button.enabled;
+            refreshPotions();
+            saveData();
+        });
+
+        Texture badgeTexture = new Texture(getResourcePath(BADGE_IMG));
+        settingsPanel.addUIElement(contentSharingBtnPotions);
+        settingsPanel.addUIElement(contentSharingBtnRelics);
+        BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
     }
 
+    public static void loadConfigData() {
+        try {
+            logger.info("AquaticMod | Loading Config Preferences...");
+            SpireConfig config = new SpireConfig("AquaticMod", "AquaticSaveData", aquaticDefault);
+            config.load();
+            contentSharing_relics  = config.getBool(PROP_RELIC_SHARING);
+            contentSharing_potions = config.getBool(PROP_POTION_SHARING);
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            clearData();
+        }
+    }
+
+    public static void clearData() {
+        saveData();
+    }
+
+    public static void saveData() {
+        try {
+            SpireConfig config = new SpireConfig("AquaticMod", "AquaticSaveData", aquaticDefault);
+            config.setBool(PROP_RELIC_SHARING, contentSharing_relics);
+            config.setBool(PROP_POTION_SHARING, contentSharing_potions);
+            config.save();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void refreshPotions(){
+        BaseMod.removePotion(BottledWater.POTION_ID);
+
+        addPotions();
+    }
+
+    public void addPotions(){
+        if (contentSharing_potions) {
+            BaseMod.addPotion(BottledWater.class, Color.CYAN.cpy(), null, null, BottledWater.POTION_ID);
+        } 
+        else {
+            BaseMod.addPotion(BottledWater.class, Color.CYAN.cpy(), null, null, BottledWater.POTION_ID, AquaticEnum.AQUATIC);
+        }
+    }
 
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new AquaticCharacter("The Aquatic"),
@@ -135,16 +219,44 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
                 AquaticEnum.AQUATIC);
     }
 
+    public void addRelic(AbstractRelic relic) {
+        shareableRelics.add(relic);
+        BaseMod.addRelicToCustomPool(new MagicRod(), AbstractCardEnum.AQUATIC);
+    }
 
     public void receiveEditRelics() {
-        RelicLibrary.add(new MagicRod());
-        RelicLibrary.add(new PlatinumReel());
-        RelicLibrary.add(new WornOar());
-        RelicLibrary.add(new Lifebuoy());
-        RelicLibrary.add(new CenozoicTooth());
-        RelicLibrary.add(new Caviar());
-        RelicLibrary.add(new Amoeba());
-        RelicLibrary.add(new OvenMitt());
+        // Starter:
+        BaseMod.addRelicToCustomPool(new MagicRod(), AbstractCardEnum.AQUATIC);
+        BaseMod.addRelicToCustomPool(new PlatinumReel(), AbstractCardEnum.AQUATIC);
+
+        // Shared:
+        shareableRelics.add(new WornOar());
+        shareableRelics.add(new Lifebuoy());
+        shareableRelics.add(new CenozoicTooth());
+        shareableRelics.add(new Caviar());
+        shareableRelics.add(new Amoeba());
+        shareableRelics.add(new OvenMitt());
+
+        addSharedRelics();
+    }
+
+    public void adjustRelics(){
+        for (AbstractRelic relic : shareableRelics) {
+            BaseMod.removeRelic(relic);
+            BaseMod.removeRelicFromCustomPool(relic, AbstractCardEnum.AQUATIC);
+        }
+
+        addSharedRelics();
+    }
+
+    public void addSharedRelics(){
+        for (AbstractRelic relic : shareableRelics) {
+            if (contentSharing_relics) {
+                BaseMod.addRelic(relic, RelicType.SHARED);
+            } else {
+                BaseMod.addRelicToCustomPool(relic, AbstractCardEnum.AQUATIC);
+            }
+        }
     }
 
     public void receiveEditCards() {
@@ -266,7 +378,6 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
         String potionStrings = Gdx.files.internal("localization/eng/AquaticMod-Potion-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
     }
-
 
     public void receiveEditKeywords() {
         Gson gson = new Gson();

@@ -1,4 +1,15 @@
 {
+  "AquaticMod:ConfigMenu": {
+    "TEXT": [
+      "Allow other characters to encounter some Aquatic relics.",
+      "Allow other characters to encounter some Aquatic potions."
+    ]
+  },
+  "AquaticMod:FreezeAction": {
+    "TEXT": [
+      "to Freeze."
+    ]
+  },
   "AquaticMod:Over50": {
     "TEXT": [
       "That enemy has over 50% HP."
@@ -7,11 +18,6 @@
   "AquaticMod:UnfreezeAction": {
     "TEXT": [
       "Choose a card to Unfreeze."
-    ]
-  },
-  "AquaticMod:FreezeAction": {
-    "TEXT": [
-      "to Freeze."
     ]
   }
 }

@@ -26,13 +26,20 @@ public class UseCardPatch
 {
     public static SpireReturn<Void> Prefix(AbstractPlayer __instance, AbstractCard c, AbstractMonster monster, int energyOnUse)
     {
+        if ((monster == null || monster.halfDead || monster.isDying || monster.isEscaping)
+        && (FrozenField.target.get(c) == AbstractCard.CardTarget.ENEMY)) {
+            monster = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+        }
+
         if (c.type == AbstractCard.CardType.ATTACK) {
             __instance.useFastAttackAnimation();
         }
+
         c.calculateCardDamage(monster);
         if (c.cost == -1 && EnergyPanel.totalCount < energyOnUse && !c.ignoreEnergyOnUse) {
             c.energyOnUse = EnergyPanel.totalCount;
         }
+
         if (c.cost == -1 && c.isInAutoplay) {
             c.freeToPlayOnce = true;
         }
