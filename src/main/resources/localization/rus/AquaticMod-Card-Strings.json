@@ -1,0 +1,432 @@
+
+{
+    "AquaticMod:AbyssScales": {
+        "NAME": "Чешуя Глубин",
+        "DESCRIPTION": "Глубина. NL Даёт !B! Защиты."
+    },
+
+    "AquaticMod:AlgaeBloom": {
+        "NAME": "Цвет Водорослей",
+        "DESCRIPTION": "Оставляется. NL Даёт [B]. NL Добавляет В слизи на дно вашей NL стопки добора.",
+        "UPGRADE_DESCRIPTION": "Оставляется. NL Даёт [B]. NL Добавляет В слизи NL в вашу руку."
+    },
+
+    "AquaticMod:Anemone": {
+        "NAME": "Актиния",
+        "DESCRIPTION": "Вы берёте !M! карты. NL Даёт Спутанность."
+    },
+
+    "AquaticMod:Ahoy": {
+        "NAME": "Ахой!",
+        "DESCRIPTION": "Начальная. NL Даёт !M! Силы. NL Во время перетасовки колоды, потеряйте !M! Силы."
+    },
+
+    "AquaticMod:Avidity": {
+        "NAME": "Алчный Интерес",
+        "DESCRIPTION": "Когда вы получаете Плавание, активируйте его.",
+        "UPGRADE_DESCRIPTION": "Начальная. NL Когда вы получаете Плавание, активируйте его."
+    },
+
+    "AquaticMod:Bacteria": {
+        "NAME": "Бактерия",
+        "DESCRIPTION": "Когда вы Сжигаете карту, вы можете выбрать ещё одну. NL Выбранная карта Сжигается."
+    },
+
+    "AquaticMod:BarnacleBlitz": {
+        "NAME": "Блиц Моллюска",
+        "DESCRIPTION": "Наносит !D! урона. NL Возьмите !M! карты. NL Даёт !M! Плавания. NL Заморозьте эту карту."
+    },
+
+    "AquaticMod:BlownOut": {
+        "NAME": "Полный Сброс!",
+        "DESCRIPTION": "Добавляет !M! Глубинных Зарядов на дно колоды добора."
+    },
+
+    "AquaticMod:BombsAway": {
+        "NAME": "Бомбы Пошли!",
+        "DESCRIPTION": "В начале вашего хода, добавляет Глубинный Заряд+ на дно колоды добора.",
+        "UPGRADE_DESCRIPTION": "Начальная. NL В начале вашего хода, добавляет Глубинный Заряд+ на дно колоды добора."
+    },
+
+    "AquaticMod:BrightScales": {
+        "NAME": "Яркая Чешуя",
+        "DESCRIPTION": "Получите Блок, равный 5+Плавание.",
+        "UPGRADE_DESCRIPTION": "Получите Блок, равный 8+Плавание.",
+        "EXTENDED_DESCRIPTION": [" NL (Даёт !B! Защиты.)"]
+    },
+
+    "AquaticMod:BrineBlast": {
+        "NAME": "Брызги Рассола",
+        "DESCRIPTION": "Если у цели 50% или меньше здоровья, NL Накладывает !M! Слабости. NL Наносит !D! урона."
+    },
+
+    "AquaticMod:Bubble": {
+        "NAME": "Пузырь",
+        "DESCRIPTION": "Наносит !D! урона. NL Получите !M! Плавания. NL Сжигается."
+    },
+
+    "AquaticMod:Cephalopod": {
+        "NAME": "Головоногий",
+        "DESCRIPTION": "Если на конец хода у вас есть Спутанность, NL получите !M! Силы и Ловкости."
+    },
+
+    "AquaticMod:Clone": {
+        "NAME": "Клон",
+        "DESCRIPTION": "Выберите карту в руке. Положите её и её копию на дно стопки добора. NL Сжигается."
+    },
+
+    "AquaticMod:Chitin": {
+        "NAME": "Хитин",
+        "DESCRIPTION": "Даёт !B! Защиты. NL Увеличьте Блок этой карты на !M! до конца битвы."
+    },
+
+    "AquaticMod:Cloister": {
+        "NAME": "Уединение",
+        "DESCRIPTION": "Даёт !B! Защиты. NL Если есть Спутанность, NL даёт !B! дополнительного Защиты."
+    },
+
+    "AquaticMod:Compression": {
+        "NAME": "Компрессия",
+        "DESCRIPTION": "Наносит !M! урона за каждую карту в руке. NL Замешайте эту карту в стопку добора.",
+        "UPGRADE_DESCRIPTION": "Наносит !M! урона за каждую карту в руке +4. NL Замешайте эту карту в стопку добора.",
+        "EXTENDED_DESCRIPTION": [" NL (Наносит !D! урона.)"]
+    },
+
+    "AquaticMod:CoralScales": {
+        "NAME": "Коралловая Чешуя",
+        "DESCRIPTION": "Даёт !B! Защиты. NL Даёт 1 Шипы за ВСЕ карты \"Чешуи\" в колоде.",
+        "EXTENDED_DESCRIPTION": [" NL (Даёт !M! Шипов.)"]
+    },
+    "AquaticMod:DarkWaters": {
+        "NAME": "Тёмные Воды",
+        "DESCRIPTION": "Начальная. NL Даёт !M! Плавания. NL Даёт Спутанность. NL Сжигается."
+    },
+
+    "AquaticMod:Defend_Aquatic": {
+        "NAME": "Оборона",
+        "DESCRIPTION": "Даёт !B! Защиты."
+    },
+
+    "AquaticMod:Demolish": {
+        "NAME": "Разрушить",
+        "DESCRIPTION": "Удвойте Мины на выбранном враге. NL Наносит !D! урона."
+    },
+
+    "AquaticMod:Deploy": {
+        "NAME": "Выставка Мин",
+        "DESCRIPTION": "Даёт !B! Защиты. NL Накладывает !M! Мин на ВСЕХ врагов."
+    },
+
+    "AquaticMod:DepthCharge": {
+        "NAME": "Глубинный Заряд",
+        "DESCRIPTION": "Глубина. NL Наносит !D! урона случайному врагу. NL Сжигается."
+    },
+
+    "AquaticMod:Detonate": {
+        "NAME": "Детонация",
+        "DESCRIPTION": "Вы не получаете урона от Мин в этом ходу. NL Наносит !D! урона.",
+        "UPGRADE_DESCRIPTION": "Вы не получаете урона от Мин NL два хода. NL Наносит !D! урона."
+    },
+
+    "AquaticMod:Dive": {
+        "NAME": "Нырок",
+        "DESCRIPTION": "Начальная. NL Выберите из стопки добора и положите в руку карту с Глубиной. NL Сжигается."
+    },
+
+    "AquaticMod:DrowningPool": {
+        "NAME": "Бассейн Утопленника",
+        "DESCRIPTION": "Если вы играете карту с Глубиной, наносит !M! урона ВСЕМ врагам."
+    },
+
+    "AquaticMod:EggClutch": {
+        "NAME": "Кладка Яиц",
+        "DESCRIPTION": "Глубина. NL Через 2 хода, получите !M! Силы и Ловкости."
+    },
+
+    "AquaticMod:FeedingFrenzy": {
+        "NAME": "Дикая Кормёжка",
+        "DESCRIPTION": "Глубина. NL Наносит !D! урона. NL За каждые !M! карты в вашей ПОЛНОЙ колоде, вылечите 1 ОЗ. NL Сжигается."
+    },
+
+    "AquaticMod:FieryFish": {
+        "NAME": "Огненная Рыба",
+        "DESCRIPTION": "Наносит !D! урона NL ВСЕМ врагам дважды. NL Разморозьте карту в руке.",
+        "UPGRADE_DESCRIPTION": "Наносит !D! урона NL ВСЕМ врагам дважды. NL Разморозьте ВСЕ карты в руке."
+    },
+
+    "AquaticMod:Float": {
+        "NAME": "Всплытие",
+        "DESCRIPTION": "Даёт !B! Защиты. NL Даёт !M! Плавания."
+    },
+
+    "AquaticMod:FromBelow": {
+        "NAME": "Из Глубин",
+        "DESCRIPTION": "Глубина. NL Наносит !D! урона дважды. NL Даёт !M! Силы. NL Замешайте эту карту в стопку добора."
+    },
+
+    "AquaticMod:FrozenSolid": {
+        "NAME": "Крепкая Заморозка",
+        "DESCRIPTION": "Даёт !M! Панциря. NL Заморозьте эту карту."
+    },
+
+    "AquaticMod:GoneFishin": {
+        "NAME": "На Рыбалку",
+        "DESCRIPTION": "Неиграбельная. NL Когда вы вытягиваете эту карту, добавьте Крюк в вашу руку.",
+        "UPGRADE_DESCRIPTION": "Неиграбельная. NL Когда вы вытягиваете эту карту, добавьте Крюк+ в вашу руку."
+    },
+
+    "AquaticMod:HarpoonShot": {
+        "NAME": "Выстрел Гарпуна",
+        "DESCRIPTION": "Наносит !D! урона. NL Положите случайную Атаку из стопки добора в руку."
+    },
+
+    "AquaticMod:Hook": {
+        "NAME": "Крюк",
+        "DESCRIPTION": "Оставляется. NL Выберите и положите карту из стопки сброса в руку. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "Оставляется. NL Выберите, положите карту из стопки сброса в руку и улучшите её до конца боя. NL Сжигается."
+    },
+
+    "AquaticMod:Iceberg": {
+        "NAME": "Айсберг",
+        "DESCRIPTION": "Каждая Атака Оставляется."
+    },
+
+    "AquaticMod:IcicleWall": {
+        "NAME": "Стена Льдин",
+        "DESCRIPTION": "Заморозьте любое число карт в руке. NL Даёт !B! Защиты и NL !M! Шипы за каждую."
+    },
+
+    "AquaticMod:IcyScales": {
+        "NAME": "Ледяная Чешуя",
+        "DESCRIPTION": "Заморозка. NL Даёт !B! Защиты."
+    },
+
+    "AquaticMod:InkCloud": {
+        "NAME": "Облако Чернил",
+        "DESCRIPTION": "В начале вашего хода, даёт !M! Защиты, если вас атакуют и Спутанность, если нет.",
+        "UPGRADE_DESCRIPTION": "Начальная. NL В начале вашего хода, даёт !M! Защиты, если вас атакуют и Спутанность, если нет."
+    },
+
+    "AquaticMod:JellySting": {
+        "NAME": "Ожог Медузы",
+        "DESCRIPTION": "Наносит !D! урона. NL Берите карты, пока их не будет !M! в руке."
+    },
+
+    "AquaticMod:KrakenGo": {
+        "NAME": "Кракен",
+        "DESCRIPTION": "Глубина. NL Заморозка. NL Наносит !D! урона. NL Даёт [B] [B]."
+    },
+
+    "AquaticMod:Lagoon": {
+        "NAME": "Чёрная Лагуна",
+        "DESCRIPTION": "Когда вы играете Атаку, даёт !M! Защиты."
+    },
+
+    "AquaticMod:Lure": {
+        "NAME": "Приманка",
+        "DESCRIPTION": "Если выбранный враг атакует, даёт !M! Шипов."
+    },
+
+    "AquaticMod:Maelstrom": {
+        "NAME": "Водоворот",
+        "DESCRIPTION": "Даёт !M! Плавания X раз. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "Даёт !M! Плавания X+1 раз. NL Сжигается."
+    },
+
+    "AquaticMod:MineField": {
+        "NAME": "Минное Поле",
+        "DESCRIPTION": "В начале вашего хода, накладывает !M! Мин на ВСЕХ врагов."
+    },
+
+    "AquaticMod:MopUp": {
+        "NAME": "Начиститься",
+        "DESCRIPTION": "Глубина. NL Если у цели 50% или меньше здоровья, даёт NL [B] и возьмите 1 карту. NL Наносит !D! урона."
+    },
+
+    "AquaticMod:NetCast": {
+        "NAME": "Бросок Сети",
+        "DESCRIPTION": "Накладывает 1 Слабости и NL !M! Уязвимости. NL Даёт Спутанность."
+    },
+
+    "AquaticMod:Nibble": {
+        "NAME": "Откусить",
+        "DESCRIPTION": "Даёт !B! Защиты. NL Наносит !D! урона. NL В следующий ход даёт [B].",
+        "UPGRADE_DESCRIPTION": "Даёт !B! Защиты. NL Наносит !D! урона. NL В следующий ход даёт [B] [B]."
+    },
+
+    "AquaticMod:Nuke": {
+        "NAME": "Древняя Бомба",
+        "DESCRIPTION": "Заморозка. NL Накладывает !M! Мин на случайного врага."
+    },
+
+    "AquaticMod:DirtyBomb": {
+        "NAME": "Грязная Бомба",
+        "DESCRIPTION": "Накладывает 10 Мин. NL При следующей атаке по цели, Мины с неё не убираются.",
+        "UPGRADE_DESCRIPTION": "Накладывает 10 Мин. NL При следующих !M! атаках по цели, Мины с неё не убираются."
+    },
+
+    "AquaticMod:Patrol": {
+        "NAME": "Патруль",
+        "DESCRIPTION": "Даёт !B! Защиты. NL Добавляет Глубинный Заряд на дно вашей стопки добора.",
+        "UPGRADE_DESCRIPTION": "Даёт !B! Защиты. NL Добавляет Глубинный Заряд+ на дно вашей стопки добора."
+    },
+
+    "AquaticMod:Pearl": {
+        "NAME": "Жемчужина",
+        "DESCRIPTION": "Глубина. NL Неиграбельная. NL Когда вы вытягиваете эту карту, даёт [B].",
+        "UPGRADE_DESCRIPTION": "Неиграбельная. NL Когда вы вытягиваете эту карту, даёт [B]."
+    },
+
+    "AquaticMod:Plant": {
+        "NAME": "Засеять",
+        "DESCRIPTION": "Накладывает !M! Мин."
+    },
+
+    "AquaticMod:Puddle": {
+        "NAME": "Лужа",
+        "DESCRIPTION": "Даёт !M! Плавания."
+    },
+
+    "AquaticMod:RazorFin": {
+        "NAME": "Острый Конец",
+        "DESCRIPTION": "Наносит !D! урона. NL Даёт !M! Шипы.",
+        "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Даёт !M! Шипов."
+    },
+
+    "AquaticMod:Rebreather": {
+        "NAME": "Ребризер",
+        "DESCRIPTION": "Глубина. NL Даёт [B] [B]. NL Добавляет Крюк NL в вашу руку. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "Глубина. NL Даёт [B] [B] [B]. NL Добавляет Крюк NL в вашу руку. NL Сжигается."
+    },
+
+    "AquaticMod:Rejuvenate": {
+        "NAME": "Омоложение",
+        "DESCRIPTION": "В следующем ходу, даёт Защиту, равную вашей текущей Защите. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "В следующем ходу, даёт Защиту, равную вашей текущей Защите."
+    },
+
+    "AquaticMod:RisingTides": {
+        "NAME": "Поднятая Волна",
+        "DESCRIPTION": "Положите выбранную карту из руки на дно стопки добора. NL Возьмите 1 карту. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "Положите выбранные карты из руки на дно стопки добора, затем возьмите 1 карту за каждую. NL Сжигается."
+    },
+
+    "AquaticMod:RogueWave": {
+        "NAME": "Волна-Убийца",
+        "DESCRIPTION": "Наносит !D! урона NL ВСЕМ врагам. NL Даёт !M! Плавания."
+    },
+
+    "AquaticMod:RopeLash": {
+        "NAME": "Удар Канатов",
+        "DESCRIPTION": "Наносит !D! урона. NL Случайная Атака в руке стоит 0, пока не сыграна."
+    },
+
+    "AquaticMod:Sabotage": {
+        "NAME": "Саботаж",
+        "DESCRIPTION": "Если у цели 50% или меньше здоровья, она теряет !M! Силы в этом ходу."
+    },
+
+    "AquaticMod:Shipwreck": {
+        "NAME": "Кораблекрушение",
+        "DESCRIPTION": "Наносит !D! урона. NL Положите в руку как можно больше карт стоимостью 0 из стопки добора."
+    },
+
+    "AquaticMod:ShoreScales": {
+        "NAME": "Береговая Чешуя",
+        "DESCRIPTION": "Начальная. NL Даёт !B! Защиты."
+    },
+
+    "AquaticMod:ShrimpyStrike": {
+        "NAME": "Удар Креветки",
+        "DESCRIPTION": "Заморозка. NL Наносит !D! урона. NL Если Казнит врага, навсегда Улучшает эту карту.",
+        "UPGRADE_DESCRIPTION": "Наносит !D! урона !M! раз."
+    },
+
+    "AquaticMod:SonarSweep": {
+        "NAME": "Гидролокатор",
+        "DESCRIPTION": "Возьмите !M! карт. NL ВЫ и ВСЕ враги получают 1 Уязвимости. NL Сжигается."
+    },
+
+    "AquaticMod:SteelWave": {
+        "NAME": "Титановая Волна",
+        "DESCRIPTION": "Даёт !B! Защиты. NL Наносит !D! урона."
+    },
+
+    "AquaticMod:StoneAged": {
+        "NAME": "Из Каменного Века",
+        "DESCRIPTION": "Заморозка. NL Наносит !D! урона. NL Когда вы вытягиваете эту карту, увеличивает её урон на !M! на эту битву."
+    },
+    "AquaticMod:Strike_Aquatic": {
+        "NAME": "Удар",
+        "DESCRIPTION": "Наносит !D! урона."
+    },
+
+    "AquaticMod:SunkenChest": {
+        "NAME": "Сундук на Дне",
+        "DESCRIPTION": "Глубина. NL Даёт !M! Артефакта. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "Глубина. NL Снимает ВСЕ дебаффы. NL Даёт !M! Артефакта. NL Сжигается."
+    },
+
+    "AquaticMod:Surf": {
+        "NAME": "Сёрфинг",
+        "DESCRIPTION": "Наносит !D! урона NL ВСЕМ врагам. NL Активирует и тратит NL ВСЕ заряды Плавания."
+    },
+
+    "AquaticMod:SquidForm": {
+        "NAME": "Форма Осьминога",
+        "DESCRIPTION": "Атаки стоят 0. NL Когда вы играете !M! Атак за ход, NL даёт Спутанность."
+    },
+
+    "AquaticMod:SwiftSwim": {
+        "NAME": "Быстрое Плаванье",
+        "DESCRIPTION": "Плавание вытягивает дополнительную карту."
+    },
+
+    "AquaticMod:TentacleSlap": {
+        "NAME": "Шлепок Щупальца",
+        "DESCRIPTION": "Наносит !D! урона. NL Даёт Спутанность. NL Добавляет Крюк в вашу руку."
+    },
+
+    "AquaticMod:TorpedoStrike": {
+        "NAME": "Удар Торпедой",
+        "DESCRIPTION": "Глубина. NL Наносит !D! урона."
+    },
+
+    "AquaticMod:Tsunami": {
+        "NAME": "Цунами",
+        "DESCRIPTION": "Даёт !M! Плавания."
+    },
+
+    "AquaticMod:Typhoon": {
+        "NAME": "Тайфун",
+        "DESCRIPTION": "Наносит !D! урона и накладывает 1 Слабости на ВСЕХ врагов X раз. NL Сжигается.",
+        "UPGRADE_DESCRIPTION": "Начальная. NL Наносит !D! урона и накладывает 1 Слабости на ВСЕХ врагов X раз. NL Сжигается."
+    },
+
+    "AquaticMod:UpToSpeed": {
+        "NAME": "Нагнать Волну",
+        "DESCRIPTION": "В следующем ходу, дополнительно возьмите !M! карт. Сжигается.",
+        "UPGRADE_DESCRIPTION": "В следующем ходу, дополнительно возьмите !M! карт."
+    },
+
+    "AquaticMod:Waterborn": {
+        "NAME": "Водоплавающий",
+        "DESCRIPTION": "В начале вашего хода, даёт !M! Плавания."
+    },
+
+    "AquaticMod:Wrap": {
+        "NAME": "Охватить",
+        "DESCRIPTION": "Наносит урон, равный числу Шипов !M! раз.",
+        "EXTENDED_DESCRIPTION": [" NL (Наносит !D! урона !M! раз.)"]
+    },
+
+    "AquaticMod:WringOut": {
+        "NAME": "Выжимка",
+        "DESCRIPTION": "Наносит !D! урон. NL Потеряйте ВСЕ заряда Плавания."
+    },
+
+    "AquaticMod:YoHoHo": {
+        "NAME": "Йо-хо-хо",
+        "DESCRIPTION": "Начальная. NL Даёт !M! Ловкости. NL Во время перетасовки колоды, потеряйте !M! Ловкости."
+    }
+}
