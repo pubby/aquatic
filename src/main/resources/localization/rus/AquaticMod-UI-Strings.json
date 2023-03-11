@@ -7,7 +7,7 @@
   },
   "AquaticMod:FreezeAction": {
     "TEXT": [
-      "Выберите карту для Заморозки."
+      "Заморозить."
     ]
   },
   "AquaticMod:Over50": {
@@ -17,7 +17,7 @@
   },
   "AquaticMod:UnfreezeAction": {
     "TEXT": [
-      "Выберите карту для Разморозки."
+      "Разморозить."
     ]
   }
 }
