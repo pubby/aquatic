@@ -289,8 +289,7 @@
 
     "AquaticMod:RazorFin": {
         "NAME": "Острый Конец",
-        "DESCRIPTION": "Наносит !D! урона. NL Даёт !M! Шипы.",
-        "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Даёт !M! Шипов."
+        "DESCRIPTION": "Наносит !D! урона. NL Даёт !M! Шипов."
     },
 
     "AquaticMod:Rebreather": {
