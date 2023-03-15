@@ -364,24 +364,34 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
         BaseMod.addCard(new SwiftSwim());
     }
 
+    public String localizationName() {
+        switch (Settings.language) {
+            case RUS:
+                return "rus";
+            default:
+                return "eng";
+        }
+    }
 
     public void receiveEditStrings() {
-        String relicStrings = Gdx.files.internal("localization/eng/AquaticMod-Relic-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String relicStrings = Gdx.files.internal("localization/" + loc + "/AquaticMod-Relic-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
-        String cardStrings = Gdx.files.internal("localization/eng/AquaticMod-Card-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String cardStrings = Gdx.files.internal("localization/" + loc + "/AquaticMod-Card-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
-        BaseMod.loadCustomStringsFile(PowerStrings.class, "localization/eng/AquaticMod-Power-Strings.json");
+        BaseMod.loadCustomStringsFile(PowerStrings.class, "localization/" + loc + "/AquaticMod-Power-Strings.json");
 
-        String uiStrings = Gdx.files.internal("localization/eng/AquaticMod-UI-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String uiStrings = Gdx.files.internal("localization/" + loc + "/AquaticMod-UI-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
 
-        String potionStrings = Gdx.files.internal("localization/eng/AquaticMod-Potion-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String potionStrings = Gdx.files.internal("localization/" + loc + "/AquaticMod-Potion-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
     }
 
     public void receiveEditKeywords() {
+        String loc = localizationName();
+
         Gson gson = new Gson();
-        String json = Gdx.files.internal("localization/eng/AquaticMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal("localization/" + loc + "/AquaticMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         Keyword[] keywords = gson.fromJson(json, Keyword[].class);
 
         if (keywords != null) {
