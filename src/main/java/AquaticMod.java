@@ -235,9 +235,11 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
         shareableRelics.add(new CenozoicTooth());
         shareableRelics.add(new Caviar());
         shareableRelics.add(new Amoeba());
-        shareableRelics.add(new OvenMitt());
 
         addSharedRelics();
+
+        // Non-shared
+        BaseMod.addRelicToCustomPool(new OvenMitt(), AbstractCardEnum.AQUATIC);
     }
 
     public void adjustRelics(){
