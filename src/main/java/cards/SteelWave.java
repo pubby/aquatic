@@ -21,9 +21,9 @@ public class SteelWave extends AbstractAquaticCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 8;
-    private static final int DAMAGE_BONUS = 3;
+    private static final int DAMAGE_BONUS = 2;
     private static final int BLOCK = 8;
-    private static final int BLOCK_BONUS = 3;
+    private static final int BLOCK_BONUS = 2;
 
     public SteelWave() {
         super(ID, IMG, COST, TYPE, RARITY, TARGET);

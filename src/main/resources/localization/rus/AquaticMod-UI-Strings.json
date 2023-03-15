@@ -5,6 +5,11 @@
       "Позволить другим персонажам получать зелья Водяного."
     ]
   },
+  "AquaticMod:Description": {
+    "TEXT": [
+      "An archaic sea creature mobilized in a bowl. NL Overwhelms enemies with its swimming prowess."
+    ]
+  },
   "AquaticMod:FreezeAction": {
     "TEXT": [
       "Заморозить."

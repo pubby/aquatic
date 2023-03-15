@@ -26,7 +26,7 @@ public class BarnacleBlitz extends AbstractAquaticCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 10;
-    private static final int DAMAGE_BONUS = 5;
+    private static final int DAMAGE_BONUS = 4;
     private static final int MAGIC = 2;
     //private static final int MAGIC_BONUS = 1;
 

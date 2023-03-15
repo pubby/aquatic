@@ -376,6 +376,8 @@ public class AquaticMod implements PostInitializeSubscriber, EditCardsSubscriber
     }
 
     public void receiveEditStrings() {
+        String loc = localizationName();
+
         String relicStrings = Gdx.files.internal("localization/" + loc + "/AquaticMod-Relic-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
         String cardStrings = Gdx.files.internal("localization/" + loc + "/AquaticMod-Card-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));

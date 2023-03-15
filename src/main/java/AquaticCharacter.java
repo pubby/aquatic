@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.localization.UIStrings;
 
 import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
@@ -112,7 +113,8 @@ public class AquaticCharacter extends CustomPlayer{
     
     @Override
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo("The Aquatic", "An archaic sea creature mobilized in a bowl. NL Overwhelms enemies with its swimming prowess.",
+        UIStrings configStrings = CardCrawlGame.languagePack.getUIString("AquaticMod:Description");
+        return new CharSelectInfo("The Aquatic", configStrings.TEXT[0],
                 75, 75, 0, 99, 5,
             this, getStartingRelics(), getStartingDeck(), false);
     }

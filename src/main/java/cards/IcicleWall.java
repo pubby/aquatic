@@ -21,7 +21,7 @@ public class IcicleWall extends AbstractAquaticCard {
 
     private static final int COST = 2;
     private static final int BLOCK = 6;
-    private static final int BLOCK_BONUS = 2;
+    private static final int BLOCK_BONUS = 1;
     private static final int MAGIC = 1;
     //private static final int MAGIC_BONUS = 1;
 
