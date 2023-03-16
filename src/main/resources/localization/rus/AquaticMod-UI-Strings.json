@@ -1,13 +1,13 @@
 {
   "AquaticMod:ConfigMenu": {
     "TEXT": [
-      "Позволить другим персонажам получать реликвии Водяного.",
-      "Позволить другим персонажам получать зелья Водяного."
+      "Позволить другим персонажам получать реликвии Aquatic.",
+      "Позволить другим персонажам получать зелья Aquatic."
     ]
   },
   "AquaticMod:Description": {
     "TEXT": [
-      "An archaic sea creature mobilized in a bowl. NL Overwhelms enemies with its swimming prowess."
+      "Архаичный морской монстр, пробравшийся в Шпиль в круглом аквариуме. NL Поражает врагов своими навыками плавания (в прямом смысле)."
     ]
   },
   "AquaticMod:FreezeAction": {
