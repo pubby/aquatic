@@ -43,7 +43,7 @@ public class IcicleWallAction extends AbstractGameAction {
     public void update() {
         if (duration == DURATION) {
             for (AbstractCard c : p.hand.group) {
-                if (!FrozenField.frozen.get(c)) continue;
+                if (!FrozenField.get(c).frozen) continue;
                 cannotFreeze.add(c);
             }
 

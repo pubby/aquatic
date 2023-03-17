@@ -29,7 +29,7 @@ public class UseCardActionPatch
 {
     public static SpireReturn<Void> Prefix(UseCardAction __instance, AbstractCard ___targetCard, boolean ___reboundCard, float ___duration)
     {
-        if (___duration == 0.15f && FrozenField.frozen.get(___targetCard)) {
+        if (___duration == 0.15f && FrozenField.get(___targetCard).frozen) {
             for (AbstractPower p : AbstractDungeon.player.powers) {
                 if (___targetCard.dontTriggerOnUseCard) continue;
                 p.onAfterUseCard(___targetCard, __instance);
@@ -72,7 +72,7 @@ public class UseCardActionPatch
             __instance.isDone = true;
             return SpireReturn.Return(null);
         }
-        else if (___duration == 0.15f && FrozenField.toFreeze.get(___targetCard)) {
+        else if (___duration == 0.15f && FrozenField.get(___targetCard).toFreeze) {
             FrozenField.freezeCard(___targetCard);
         }
 

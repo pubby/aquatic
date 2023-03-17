@@ -40,7 +40,7 @@ public class DethawHandAction extends AbstractGameAction {
         if (duration == DURATION) {
             if (num < 0) {
                 for (AbstractCard c : p.hand.group) {
-                    if (FrozenField.frozen.get(c)) {
+                    if (FrozenField.get(c).frozen) {
                         unfreeze(c);
                     }
                 }
@@ -49,7 +49,7 @@ public class DethawHandAction extends AbstractGameAction {
             }
             else {
                 for (AbstractCard c : p.hand.group) {
-                    if (FrozenField.frozen.get(c)) continue;
+                    if (FrozenField.get(c).frozen) continue;
                     cannotUnfreeze.add(c);
                 }
 
@@ -60,7 +60,7 @@ public class DethawHandAction extends AbstractGameAction {
 
                 if (p.hand.group.size() - cannotUnfreeze.size() == 1) {
                     for (AbstractCard c : p.hand.group) {
-                        if (!FrozenField.frozen.get(c)) continue;
+                        if (!FrozenField.get(c).frozen) continue;
                         unfreeze(c);
                         isDone = true;
                         return;

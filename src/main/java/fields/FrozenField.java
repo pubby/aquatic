@@ -3,6 +3,8 @@ package aquaticmod.fields;
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import java.util.HashMap;
+import java.util.UUID;
 
 @SpirePatch(
         cls="com.megacrit.cardcrawl.cards.AbstractCard",
@@ -10,38 +12,60 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 )
 public class FrozenField
 {
-    public static SpireField<Boolean> frozen = new SpireField<>(() -> false);
-    public static SpireField<Boolean> startFrozen = new SpireField<>(() -> false);
-    public static SpireField<Boolean> toFreeze = new SpireField<>(() -> false);
-    public static SpireField<AbstractCard.CardTarget> target = new SpireField<>(() -> AbstractCard.CardTarget.NONE);
+    public static class FrozenDetails
+    {
+        public boolean frozen = false;
+        public boolean toFreeze = false;
+        public AbstractCard.CardTarget target = AbstractCard.CardTarget.NONE;
+    }
 
+    public static SpireField<Boolean> cachedFrozen = new SpireField<>(() -> false);
+    public static SpireField<Boolean> startFrozen = new SpireField<>(() -> false);
+    public static HashMap<UUID, FrozenDetails> map = new HashMap<UUID, FrozenDetails>();
+
+    static public FrozenDetails get(AbstractCard c) {
+        FrozenDetails r = map.get(c.uuid);
+        if (r == null) {
+            r = new FrozenDetails();
+            map.put(c.uuid, r);
+        }
+        return r;
+    }
+
+    static public void reset() { map.clear(); }
 
     static public void startFrozenCard(AbstractCard c) {
-        FrozenField.startFrozen.set(c, true);
+        startFrozen.set(c, true);
     }
 
     static public void unstartFrozenCard(AbstractCard c) {
-        FrozenField.startFrozen.set(c, false);
+        startFrozen.set(c, false);
     }
 
     static public void toFreezeCard(AbstractCard c) {
-        FrozenField.toFreeze.set(c, true);
+        get(c).toFreeze = true;
     }
 
     static public void freezeCard(AbstractCard c) {
-        if (FrozenField.frozen.get(c)) return;
-        FrozenField.target.set(c, c.target);
-        FrozenField.toFreeze.set(c, false);
-        FrozenField.frozen.set(c, true);
+        FrozenDetails d = get(c);
+
+        if (d.frozen) return;
+        d.target = c.target;
+        d.toFreeze = false;
+        d.frozen = true;
         c.target = AbstractCard.CardTarget.NONE;
+        cachedFrozen.set(c, true);
         c.applyPowers();
     }
     
     static public void unfreezeCard(AbstractCard c) {
-        if (!FrozenField.frozen.get(c)) return;
-        c.target = FrozenField.target.get(c);
-        FrozenField.toFreeze.set(c, false);
-        FrozenField.frozen.set(c, false);
+        FrozenDetails d = get(c);
+
+        if (!d.frozen) return;
+        c.target = d.target;
+        d.toFreeze = false;
+        d.frozen = false;
+        cachedFrozen.set(c, false);
         c.applyPowers();
     }
 }

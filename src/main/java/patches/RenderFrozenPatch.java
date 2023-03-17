@@ -29,7 +29,7 @@ public class RenderFrozenPatch
 {
     public static void Postfix(AbstractCard __instance, SpriteBatch sb)
     {
-        if (!Settings.hideCards && FrozenField.frozen.get(__instance)) {
+        if (!Settings.hideCards && FrozenField.cachedFrozen.get(__instance)) {
             AquaticMod.loadFrozenTexture();
             sb.setColor(Color.WHITE.cpy());
             sb.draw(AquaticMod.frozenTexture, __instance.current_x - 256.0f, __instance.current_y - 256.0f, 

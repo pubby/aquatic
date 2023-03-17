@@ -26,8 +26,10 @@ public class UseCardPatch
 {
     public static SpireReturn<Void> Prefix(AbstractPlayer __instance, AbstractCard c, AbstractMonster monster, int energyOnUse)
     {
-        if ((monster == null || monster.halfDead || monster.isDying || monster.isEscaping)
-        && (FrozenField.target.get(c) == AbstractCard.CardTarget.ENEMY)) {
+        FrozenField.FrozenDetails d = FrozenField.get(c);
+
+        if ((monster == null)
+        && (d.target == AbstractCard.CardTarget.ENEMY || d.target == AbstractCard.CardTarget.ALL_ENEMY)) {
             monster = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
         }
 
@@ -44,9 +46,10 @@ public class UseCardPatch
             c.freeToPlayOnce = true;
         }
 
-        if (!FrozenField.frozen.get(c)) {
+        if(!d.frozen) {
             c.use(__instance, monster);
         }
+
 
         AbstractDungeon.actionManager.addToBottom(new UseCardAction(c, monster));
         if (!c.dontTriggerOnUseCard) {

@@ -74,9 +74,10 @@ public abstract class AbstractAquaticCard extends CustomCard {
     @Override
     public void applyPowers() {
         if (FrozenField.startFrozen.get(this)) {
-            FrozenField.startFrozen.set(this, false);
+            FrozenField.unstartFrozenCard(this);
             FrozenField.freezeCard(this);
         }
+        FrozenField.cachedFrozen.set(this, FrozenField.get(this).frozen);
         super.applyPowers();
     }
 }

@@ -58,7 +58,7 @@ public class SwimPower extends AbstractAquaticPower {
     @Override
     public void onAfterCardPlayed(AbstractCard usedCard) {
         if (usedCard.type == AbstractCard.CardType.ATTACK && amount > 0) {
-            int numTriggers = (usedCard instanceof Surf && !FrozenField.frozen.get(usedCard)) ? amount : 1;
+            int numTriggers = (usedCard instanceof Surf && !FrozenField.get(usedCard).frozen) ? amount : 1;
 
             trigger(numTriggers);
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(owner, owner, ID, numTriggers));

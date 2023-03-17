@@ -33,13 +33,6 @@
   },
   {
     "NAMES": [
-      "plated armor"
-    ],
-    "PROPERNAME": "PlatedArmor",
-    "DESCRIPTION": "Gains Block at the end of each turn. Receiving unblocked attack damage reduces Plated Armor by 1."
-  },
-  {
-    "NAMES": [
       "swim"
     ],
     "PROPERNAME": "Swim",
