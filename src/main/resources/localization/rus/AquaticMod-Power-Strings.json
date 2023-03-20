@@ -91,7 +91,7 @@
 
   "AquaticMod:SwimPower": {
     "NAME": "Плавание",
-    "DESCRIPTIONS": ["Вы берёте карту и теряете #b1 #yПлавание, когда вы играете #yАтаку,"]
+    "DESCRIPTIONS": ["Вы берёте #b1 карту и теряете #b1 #yПлавание, когда вы разыгрываете #yАтаку."]
   },
 
   "AquaticMod:WaterbornPower": {
