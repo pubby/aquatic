@@ -22,13 +22,46 @@ import java.util.ArrayList;
 )
 public class UseCardPatch
 {
-    public static void Prefix(AbstractPlayer __instance, AbstractCard c, @ByRef AbstractMonster[] monster, int energyOnUse)
+    public static SpireReturn<?> Prefix(AbstractPlayer __instance, AbstractCard c, @ByRef AbstractMonster[] monster, int energyOnUse)
     {
         FrozenField.FrozenDetails d = FrozenField.get(c);
+        
+        if (d.frozen) {
+            if ((monster[0] == null) && 
+                (d.target == AbstractCard.CardTarget.ENEMY || d.target == AbstractCard.CardTarget.ALL_ENEMY)) {
+                monster[0] = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+            }
 
-        if ((monster[0] == null) && 
-            (d.target == AbstractCard.CardTarget.ENEMY || d.target == AbstractCard.CardTarget.ALL_ENEMY)) {
-            monster[0] = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+            c.calculateCardDamage(monster);
+            if (c.cost == -1 && EnergyPanel.totalCount < energyOnUse && !c.ignoreEnergyOnUse) {
+                c.energyOnUse = EnergyPanel.totalCount;
+            }
+            
+            if (c.cost == -1 && c.isInAutoplay) {
+                c.freeToPlayOnce = true;
+            }
+
+
+            AbstractDungeon.actionManager.addToBottom(new UseCardAction(c, monster));
+            if (!c.dontTriggerOnUseCard) {
+                __instance.hand.triggerOnOtherCardPlayed(c);
+            }
+
+            __instance.hand.removeCard(c);
+            __instance.cardInUse = c;
+
+            c.target_x = Settings.WIDTH / 2;
+            c.target_y = Settings.HEIGHT / 2;
+
+            if (!(c.costForTurn <= 0 || c.freeToPlay() || c.isInAutoplay || __instance.hasPower("Corruption") && c.type == AbstractCard.CardType.SKILL)) {
+                __instance.energy.use(c.costForTurn);
+            }
+            if (!__instance.hand.canUseAnyCard() && !__instance.endTurnQueued) {
+                AbstractDungeon.overlayMenu.endTurnButton.isGlowing = true;
+            }
+
+            return SpireReturn.Return();
         }
+        return SpireReturn.Continue();
     }
 }
